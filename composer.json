@@ -1,0 +1,39 @@
+{
+    "name": "naoray/laravel-harvest",
+    "description": "A description for laravel-harvest.",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Naoray Kroaths",
+            "email": "krishan.koenig@googlemail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.5",
+        "kitetail/zttp": "^0.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Naoray\\LaravelHarvest\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Naoray\\LaravelHarvest\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Naoray\\LaravelHarvest\\LaravelHarvestServiceProvider"
+            ],
+            "aliases": {
+                "Harvest": "Naoray\\LaravelHarvest\\Harvest"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.5"
+    }
+}
