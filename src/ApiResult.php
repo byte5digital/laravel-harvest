@@ -44,11 +44,25 @@ class ApiResult
     }
 
     /**
+     * Transforms results into collection.
+     * 
+     * @return [type] [description]
+     */
+    public function toCollection()
+    {
+        if ($this->countResults() == 1) {
+            return $this->transformToModel([$this->jsonResult])->first();
+        }
+
+        return $this->transformToModel($this->jsonResult[$this->getResultsKey()]);
+    }
+
+    /**
      * Transform results to collection.
      *
      * @return mixed
      */
-    public function toCollection()
+    public function toPaginatedCollection()
     {
         if ($this->countResults() == 1) {
             return $this->transformToModel([$this->jsonResult])->first();
