@@ -2,6 +2,7 @@
 
 namespace Naoray\LaravelHarvest;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class ApiResult
@@ -92,7 +93,15 @@ class ApiResult
      */
     private function transformToModel($data)
     {
-        return call_user_func($this->model.'::hydrate', $data);
+        $data = collect($data)->map(function ($item) {
+            $item['created_at'] = Carbon::parse($item['created_at']);
+            $item['updated_at'] = Carbon::parse($item['updated_at']);
+
+            return $item;
+        });
+
+
+        return call_user_func($this->model.'::hydrate', $data->toArray());
     }
 
     /**
