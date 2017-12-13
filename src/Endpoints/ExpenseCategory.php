@@ -2,7 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Endpoints;
 
-class Expense extends BaseEndpoint
+class ExpenseCategory extends BaseEndpoint
 {
     /**
      * @return mixed
