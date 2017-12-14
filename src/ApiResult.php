@@ -53,7 +53,7 @@ class ApiResult
     public function toCollection()
     {
         if ($this->countResults() == 1) {
-            return $this->transformToModel([$this->jsonResult])->first();
+            return $this->transformToModel([$this->jsonResult]);
         }
 
         return $this->transformToModel($this->jsonResult[$this->getResultsKey()]);
@@ -89,9 +89,11 @@ class ApiResult
      */
     private function transformToModel($data)
     {
-        $data = $this->convertDateTimes($data);
+        return $this->convertDateTimes($data)->map(function ($data) {
+            return new $this->model($data);
+        });
 
-        return call_user_func($this->model.'::hydrate', $data->toArray());
+//        return call_user_func($this->model.'::hydrate', $data->toArray());
     }
 
     /**

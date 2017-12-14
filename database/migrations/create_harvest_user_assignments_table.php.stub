@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestUserAssignmentsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.user_assignments');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->boolean('is_active');
+            $table->boolean('is_project_manager');
+            $table->float('hourly_rate', 12, 2);
+            $table->float('budget', 12, 2);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.user_assignments');
+
+        Schema::dropIfExists($tableName);
+    }
+}

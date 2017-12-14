@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestCompaniesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.companies');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('base_uri');
+            $table->string('full_domain');
+            $table->string('name');
+            $table->boolean('is_active');
+            $table->string('week_start_day');
+            $table->boolean('wants_timestamp_timers');
+            $table->string('time_format');
+            $table->string('plan_type');
+            $table->string('clock');
+            $table->string('decimal_symbol');
+            $table->string('thousands_separator');
+            $table->string('color_scheme');
+            $table->boolean('expense_feature');
+            $table->boolean('invoice_feature');
+            $table->boolean('estimate_feature');
+            $table->boolean('approval_feature');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.companies');
+
+        Schema::dropIfExists($tableName);
+    }
+}

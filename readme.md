@@ -5,6 +5,10 @@
 
 `composer require naoray/laravel-harvest`
 
+*If you want to persist harvest data, publish the migration:*
+`php artisan vendor:publish --provider="Naoray\LaravelHarvest\LaravelHarvestServiceProvider`
+
+*If you only want to publish the config file add:* `--tag="config"`
 
 ## Usage
 
@@ -68,6 +72,9 @@ $result->toCollection();
 // convert result to paginated collection
 $result->toPaginatedCollection();
 ```
+
+## Data not Stored
+- 
 
 ## ToDo
 - add usage sections to readme

@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestInvoiceMessagesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.invoice_messages');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('sent_by');
+            $table->string('sent_by_email');
+            $table->string('sent_from');
+            $table->string('sent_from_email');
+            $table->json('recipients');
+            $table->string('subject');
+            $table->string('body');
+            $table->boolean('include_link_to_client_invoice');
+            $table->boolean('attach_pdf');
+            $table->boolean('send_me_a_copy');
+            $table->boolean('thank_you');
+            $table->boolean('event_type')->nullable();
+            $table->boolean('reminder');
+            $table->date('send_reminder_on')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.invoice_messages');
+
+        Schema::dropIfExists($tableName);
+    }
+}

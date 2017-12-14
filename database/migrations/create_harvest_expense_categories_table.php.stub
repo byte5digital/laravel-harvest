@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestExpenseCategoriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.expense_categories');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('unit_name')->nullable();
+            $table->float('unit_price', 12, 2);
+            $table->boolean('is_active');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.expense_categories');
+
+        Schema::dropIfExists($tableName);
+    }
+}

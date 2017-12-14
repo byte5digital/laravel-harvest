@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestInvoicePaymentsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.invoice_payments');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->json('payment_gateway_id');
+            $table->float('amount', 12, 2);
+            $table->string('recorded_by');
+            $table->string('recorded_by_email');
+            $table->string('notes');
+            $table->string('transaction_id');
+            $table->dateTime('paid_at');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.invoice_payments');
+
+        Schema::dropIfExists($tableName);
+    }
+}

@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestExpensesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.expenses');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('client_id');
+            $table->integer('project_id');
+            $table->integer('expense_category_id');
+            $table->integer('user_id');
+            $table->integer('user_assignment_id');
+            $table->integer('invoice_id');
+            $table->json('receipt')->nullable();
+            $table->string('notes');
+            $table->boolean('billable');
+            $table->boolean('is_closed');
+            $table->boolean('is_locked');
+            $table->boolean('is_billed');
+            $table->string('locked_reason');
+            $table->date('spent_date');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.expenses');
+
+        Schema::dropIfExists($tableName);
+    }
+}

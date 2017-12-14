@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestClientsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.clients');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('currency');
+            $table->string('name');
+            $table->boolean('is_active');
+            $table->string('address')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.clients');
+
+        Schema::dropIfExists($tableName);
+    }
+}

@@ -1,0 +1,54 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestTimeEntriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.time_entries');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('user_assignment_id');
+            $table->integer('client_id');
+            $table->integer('project_id');
+            $table->integer('task_id');
+            $table->integer('task_assignment_id');
+            $table->integer('invoice_id')->nullable();
+            $table->json('reference')->nullable();
+            $table->float('hours', 12, 2);
+            $table->float('billable_rate', 12, 2);
+            $table->float('cost_rate', 12, 2);
+            $table->string('notes')->nullable();
+            $table->boolean('is_locked');
+            $table->string('locked_reason')->nullable();
+            $table->boolean('is_closed');
+            $table->boolean('is_billed');
+            $table->boolean('is_running');
+            $table->boolean('billable');
+            $table->boolean('budgeted');
+            $table->time('started_time')->nullable();
+            $table->time('ended_time')->nullable();
+            $table->date('spent_date');
+            $table->dateTime('timer_started_at')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.time_entries');
+
+        Schema::dropIfExists($tableName);
+    }
+}

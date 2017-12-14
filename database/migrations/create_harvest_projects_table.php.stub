@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHarvestProjectsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.projects');
+
+        Schema::create($tableName, function (Blueprint $table) {
+            $table->increments('id');
+            $table->json('client_id');
+            $table->string('name');
+            $table->string('code');
+            $table->boolean('is_active');
+            $table->boolean('is_billable');
+            $table->boolean('is_fixed_fee');
+            $table->string('bill_by');
+            $table->float('hourly_rate', 12, 2);
+            $table->float('budget', 12, 2);
+            $table->string('budget_by');
+            $table->boolean('notify_when_over_budget');
+            $table->float('over_budget_notification_percentage', 12, 2);
+            $table->boolean('show_budget_to_all');
+            $table->float('cost_budget', 12, 2)->nullable();
+            $table->boolean('cost_budget_include_expenses');
+            $table->float('fee', 12, 2)->nullable();
+            $table->string('notes');
+            $table->date('starts_on');
+            $table->date('ends_on')->nullable();
+            $table->date('over_budget_notification_date')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        $tableName = config('harvest.table_prefix').config('harvest.table_names.projects');
+
+        Schema::dropIfExists($tableName);
+    }
+}
