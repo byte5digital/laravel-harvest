@@ -2,11 +2,12 @@
 
 namespace Naoray\LaravelHarvest;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use Naoray\LaravelHarvest\Traits\CanConvertDateTimes;
 
 class ApiResult
 {
+    use CanConvertDateTimes;
+    
     /**
      * @var
      */
@@ -46,8 +47,8 @@ class ApiResult
 
     /**
      * Transforms results into collection.
-     * 
-     * @return [type] [description]
+     *
+     * @return Illuminate\Support\Collection
      */
     public function toCollection()
     {
@@ -65,12 +66,7 @@ class ApiResult
      */
     public function toPaginatedCollection()
     {
-        if ($this->countResults() == 1) {
-            return $this->transformToModel([$this->jsonResult])->first();
-        }
-
-        $key = $this->getResultsKey();
-        $this->jsonResult[$key] = $this->transformToModel($this->jsonResult[$key]);
+        $this->jsonResult[$this->getResultsKey()] = $this->toCollection();
 
         return $this->jsonResult;
     }
@@ -93,13 +89,7 @@ class ApiResult
      */
     private function transformToModel($data)
     {
-        $data = collect($data)->map(function ($item) {
-            $item['created_at'] = Carbon::parse($item['created_at']);
-            $item['updated_at'] = Carbon::parse($item['updated_at']);
-
-            return $item;
-        });
-
+        $data = $this->convertDateTimes($data);
 
         return call_user_func($this->model.'::hydrate', $data->toArray());
     }

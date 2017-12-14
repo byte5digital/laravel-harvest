@@ -2,37 +2,16 @@
 
 namespace Naoray\LaravelHarvest;
 
+use Naoray\LaravelHarvest\Traits\CanGuessEndpointNames;
+
 class ApiManager
 {
+    use CanGuessEndpointNames;
+
     /**
      * @var
      */
     protected $endpoint;
-
-    /**
-     * @var array
-     */
-    protected $availableEndpoints = [
-        'Client',
-        'Contact',
-        'EstimateMessage',
-        'EstimateItemCategory',
-        'Estimate',
-        'ExpenseCategory',
-        'Expense',
-        'InvoiceItemCategory',
-        'InvoiceMessage',
-        'InvoicePayment',
-        'Invoice',
-        'ProjectAssignment',
-        'Project',
-        'Role',
-        'TaskAssignment',
-        'Task',
-        'TimeEntry',
-        'User',
-        'UserAssignment',
-    ];
 
     /**
      * @var ApiGateway
@@ -101,17 +80,6 @@ class ApiManager
             $this->gateway->execute($url),
             $endpoint->getModel()
         );
-    }
-
-    /**
-     * @param $name
-     * @return mixed
-     */
-    private function guessEndpointName($name)
-    {
-        return collect($this->availableEndpoints)->filter(function ($endpoint) use ($name) {
-            return str_contains(str_singular($name), $endpoint);
-        })->first();
     }
 
     /**
