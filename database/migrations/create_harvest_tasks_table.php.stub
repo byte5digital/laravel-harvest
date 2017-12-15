@@ -15,6 +15,7 @@ class CreateHarvestTasksTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->string('name');
             $table->boolean('billable_by_default');
             $table->float('default_hourly_rate', 12, 2);

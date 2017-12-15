@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class EstimateItemCategory extends Model
+class EstimateItemCategory extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,7 @@ class EstimateItemCategory extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = ['external_id', 'name'];
 
     /**
      * EstimateItemCategory constructor.

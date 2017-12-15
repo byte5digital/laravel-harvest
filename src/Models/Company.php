@@ -2,14 +2,18 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Company extends Model
+class Company extends BaseModel
 {
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'base_uri', 'full_domain', 'name', 'is_active', 'week_start_day',
+        'wants_timestamp_timers', 'wants_timestamp_timers', 'time_format',
+        'plan_type', 'clock', 'decimal_symbol', 'thousands_separator',
+        'color_scheme', 'expense_feature', 'invoice_feature',
+        'estimate_feature', 'approval_feature'
+    ];
 
     /**
      * Company constructor.

@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class InvoiceItemCategory extends Model
+class InvoiceItemCategory extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,9 @@ class InvoiceItemCategory extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'name', 'line_items', 'use_as_service'
+    ];
 
     /**
      * InvoiceItemCategory constructor.

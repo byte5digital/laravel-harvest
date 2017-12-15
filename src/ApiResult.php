@@ -90,10 +90,15 @@ class ApiResult
     private function transformToModel($data)
     {
         return $this->convertDateTimes($data)->map(function ($data) {
-            return new $this->model($data);
-        });
+//            if (array_has($data, 'id')) {
+//                $data['external_id'] = $data['id'];
+//                unset($data['id']);
+//            }
 
-//        return call_user_func($this->model.'::hydrate', $data->toArray());
+            $transformerName = '\Naoray\LaravelHarvest\Transformer\\'.class_basename($this->model);
+
+            return (new $transformerName)->transformModelAttributes($data);
+        });
     }
 
     /**

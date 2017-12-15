@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
+class User extends BaseModel
 {
     /**
      * @var array
@@ -21,7 +19,13 @@ class User extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'first_name', 'last_name', 'email', 'telephone', 'timezone',
+        'has_access_to_all_future_projects', 'is_contractor', 'is_admin',
+        'is_project_manager', 'can_see_rates', 'can_create_projects',
+        'is_active', 'weekly_capacity', 'default_hourly_rate',
+        'cost_rate', 'roles', 'avatar_url',
+    ];
 
     /**
      * User constructor.

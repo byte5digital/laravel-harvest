@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Client extends Model
+class Client extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,9 @@ class Client extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'currency', 'name', 'is_active', 'address'
+    ];
 
     /**
      * Client constructor.

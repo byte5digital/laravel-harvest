@@ -15,6 +15,7 @@ class CreateHarvestEstimateItemCategoriesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->string('name');
             $table->timestamps();
         });

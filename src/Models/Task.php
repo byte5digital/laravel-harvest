@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Task extends Model
+class Task extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,10 @@ class Task extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'name', 'billable_by_default', 'default_hourly_rate',
+        'is_default', 'is_active',
+    ];
 
     /**
      * Task constructor.

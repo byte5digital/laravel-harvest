@@ -89,7 +89,7 @@ class ApiManager
     private function guessApiCall($name)
     {
         return str_contains($name, 'Id') ? 'id'
-            : str_contains($name, 'Current') ? 'me' : 'all';
+            : (str_contains($name, 'Current') ? 'me' : 'all');
     }
 
     /**

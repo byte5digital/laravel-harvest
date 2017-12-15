@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Role extends Model
+class Role extends BaseModel
 {
     /**
      * @var array
@@ -21,7 +19,7 @@ class Role extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = ['external_id', 'name', 'user_ids'];
 
     /**
      * Role constructor.

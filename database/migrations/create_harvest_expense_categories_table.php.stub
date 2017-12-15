@@ -15,6 +15,7 @@ class CreateHarvestExpenseCategoriesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->string('name');
             $table->string('unit_name')->nullable();
             $table->float('unit_price', 12, 2);

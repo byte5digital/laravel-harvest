@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class EstimateMessage extends Model
+class EstimateMessage extends BaseModel
 {
     /**
      * @var array
@@ -21,7 +19,10 @@ class EstimateMessage extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'sent_by', 'sent_by_email', 'sent_from', 'recipients',
+        'subject', 'body', 'send_me_a_copy', 'event_type',
+    ];
 
     /**
      * EstimateMessage constructor.

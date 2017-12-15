@@ -1,0 +1,27 @@
+<?php
+
+namespace Naoray\LaravelHarvest\Transformer;
+
+use Naoray\LaravelHarvest\Contracts\Transformer;
+use \Naoray\LaravelHarvest\Models\Task as TaskModel;
+
+class Task implements Transformer
+{
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function transformModelAttributes($data)
+    {
+        $task = (new TaskModel())->firstOrNew(['external_id' => $data['id']]);
+
+        $task->external_id = $data['id'];
+        $task->name = $data['name'];
+        $task->billable_by_default = $data['billable_by_default'];
+        $task->default_hourly_rate = $data['default_hourly_rate'];
+        $task->is_default = $data['is_default'];
+        $task->is_active = $data['is_active'];
+
+        return $task;
+    }
+}

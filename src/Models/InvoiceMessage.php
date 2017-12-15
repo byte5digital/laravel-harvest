@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class InvoiceMessage extends Model
+class InvoiceMessage extends BaseModel
 {
     /**
      * @var array
@@ -21,7 +19,12 @@ class InvoiceMessage extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'sent_by', 'sent_by_email', 'sent_from', 'sent_from_email',
+        'recipients', 'subject', 'body', 'include_link_to_client_invoice',
+        'attach_pdf', 'send_me_a_copy', 'thank_you', 'event_type',
+        'reminder', 'send_reminder_on',
+    ];
 
     /**
      * InvoiceMessage constructor.

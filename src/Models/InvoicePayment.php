@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class InvoicePayment extends Model
+class InvoicePayment extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,10 @@ class InvoicePayment extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'payment_gateway_id', 'amount', 'recorded_by',
+        'recorded_by_email', 'notes', 'transaction_id', 'paid_at',
+    ];
 
     /**
      * InvoicePayment constructor.

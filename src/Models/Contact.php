@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Contact extends Model
+class Contact extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,17 @@ class Contact extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'title', 'first_name', 'last_name', 'email',
+        'phone_office', 'phone_mobile', 'fax', 'client_id'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $transformable = [
+        'client' => 'relation',
+    ];
 
     /**
      * Contact constructor.
@@ -27,5 +35,10 @@ class Contact extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.contacts')
         );
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
     }
 }

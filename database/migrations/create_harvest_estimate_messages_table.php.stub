@@ -15,6 +15,7 @@ class CreateHarvestEstimateMessagesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->string('sent_by');
             $table->string('sent_by_email');
             $table->string('sent_from');

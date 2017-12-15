@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class UserAssignment extends Model
+class UserAssignment extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,16 @@ class UserAssignment extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'user_id', 'is_active', 'is_project_manager', 'hourly_rate', 'budget',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $transformable = [
+        'user' => 'relation',
+    ];
 
     /**
      * UserAssignment constructor.
@@ -27,5 +34,13 @@ class UserAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.user_assignments')
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

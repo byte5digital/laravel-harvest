@@ -15,6 +15,7 @@ class CreateHarvestTaskAssignmentsTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->integer('task_id');
             $table->boolean('is_active');
             $table->boolean('billable');

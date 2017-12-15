@@ -15,6 +15,7 @@ class CreateHarvestInvoicePaymentsTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->json('payment_gateway_id');
             $table->float('amount', 12, 2);
             $table->string('recorded_by');

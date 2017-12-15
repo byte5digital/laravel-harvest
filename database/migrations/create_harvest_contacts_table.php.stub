@@ -15,13 +15,14 @@ class CreateHarvestContactsTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->integer('client_id');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->string('phone_office');
-            $table->string('phone_mobile');
+            $table->string('phone_office')->nullable();
+            $table->string('phone_mobile')->nullable();
             $table->string('fax');
             $table->timestamps();
         });

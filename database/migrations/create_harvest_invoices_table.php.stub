@@ -15,6 +15,7 @@ class CreateHarvestInvoicesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('external_id');
             $table->integer('client_id');
             $table->integer('estimate_id');
             $table->integer('retainer_id')->nullable();

@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class TaskAssignment extends Model
+class TaskAssignment extends BaseModel
 {
     /**
      * @var array
@@ -14,7 +12,16 @@ class TaskAssignment extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'task_id', 'is_active', 'hourly_rate', 'budget',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $transformable = [
+        'task' => 'relation',
+    ];
 
     /**
      * TaskAssignment constructor.
@@ -27,5 +34,13 @@ class TaskAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.task_assignments')
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function task()
+    {
+        return $this->belongsTo(Task::class);
     }
 }

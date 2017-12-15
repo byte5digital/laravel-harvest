@@ -2,9 +2,7 @@
 
 namespace Naoray\LaravelHarvest\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ProjectAssignment extends Model
+class ProjectAssignment extends BaseModel
 {
     /**
      * @var array
@@ -21,7 +19,18 @@ class ProjectAssignment extends Model
     /**
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'external_id', 'project_id', 'client_id', 'is_active', 'is_project_manager',
+        'hourly_rate', 'budget', 'task_assignments',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $transformable = [
+        'project' => 'relation',
+        'client' => 'relation',
+    ];
 
     /**
      * ProjectAssignment constructor.
@@ -34,5 +43,21 @@ class ProjectAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.project_assignments')
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }
