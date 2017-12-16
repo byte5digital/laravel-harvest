@@ -17,7 +17,7 @@ class CreateHarvestInvoicesTable extends Migration
             $table->increments('id');
             $table->integer('external_id');
             $table->integer('client_id');
-            $table->integer('estimate_id');
+            $table->integer('estimate_id')->nullable();
             $table->integer('retainer_id')->nullable();
             $table->integer('creator_id');
             $table->json('line_items');

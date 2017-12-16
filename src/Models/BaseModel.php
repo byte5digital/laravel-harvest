@@ -46,11 +46,17 @@ abstract class BaseModel extends Model
             if ($value === 'relation') {
                 $relationMethod = camel_case($key);
 
+                if (! $this->{$key}) {
+                    var_dump($key);
+                    return;
+                }
+
                 if (! $this->$relationMethod()->exists()) {
                     call_user_func('\Harvest::get'.ucfirst($relationMethod).'ById', $this->{$key}['id'])
                         ->toCollection()->first()->save();
                 }
 
+                var_dump($this->{$key}['id']);
                 $relationClassName = '\Naoray\LaravelHarvest\Models\\'.ucfirst($relationMethod);
                 $this->{$key.'_id'} = (new $relationClassName())->whereExternalId($this->{$key}['id'])->first()->id;
                 unset($this->{$key});

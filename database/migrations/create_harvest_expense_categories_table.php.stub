@@ -18,7 +18,7 @@ class CreateHarvestExpenseCategoriesTable extends Migration
             $table->integer('external_id');
             $table->string('name');
             $table->string('unit_name')->nullable();
-            $table->float('unit_price', 12, 2);
+            $table->float('unit_price', 12, 2)->nullable();
             $table->boolean('is_active');
             $table->timestamps();
         });

@@ -36,7 +36,7 @@ class Invoice extends BaseModel
         'client' => 'relation',
         'estimate' => 'relation',
 //        'retainer' => 'relation',
-        'creator' => 'relation',
+//        'creator' => 'relation',
     ];
 
     /**

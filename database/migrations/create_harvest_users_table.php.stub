@@ -27,11 +27,11 @@ class CreateHarvestUsersTable extends Migration
             $table->boolean('is_project_manager');
             $table->boolean('can_see_rates');
             $table->boolean('can_create_projects');
-            $table->boolean('can_create_invoices');
+            $table->boolean('can_create_invoices')->nullable();
             $table->boolean('is_active');
             $table->integer('weekly_capacity');
-            $table->float('default_hourly_rate', 12, 2);
-            $table->float('cost_rate', 12, 2);
+            $table->float('default_hourly_rate', 12, 2)->nullable();
+            $table->float('cost_rate', 12, 2)->nullable();
             $table->json('roles');
             $table->string('avatar_url');
             $table->timestamps();
