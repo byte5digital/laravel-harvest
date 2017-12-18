@@ -35,8 +35,11 @@ class Invoice extends BaseModel
     protected $transformable = [
         'client' => 'relation',
         'estimate' => 'relation',
-//        'retainer' => 'relation',
-//        'creator' => 'relation',
+        'retainer' => 'extern',
+        'creator' => [
+            'type' => 'relation',
+            'class' => 'User',
+        ],
     ];
 
     /**
@@ -74,13 +77,5 @@ class Invoice extends BaseModel
     public function estimate()
     {
         return $this->belongsTo(Estimate::class);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function retainer()
-    {
-        return $this->belongsTo(Client::class);
     }
 }

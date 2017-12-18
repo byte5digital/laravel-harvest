@@ -20,15 +20,15 @@ class CreateHarvestExpensesTable extends Migration
             $table->integer('project_id');
             $table->integer('expense_category_id');
             $table->integer('user_id');
-            $table->integer('user_assignment_id');
-            $table->integer('invoice_id');
+            $table->integer('user_assignment_id')->nullable();
+            $table->integer('invoice_id')->nullable();
             $table->json('receipt')->nullable();
             $table->string('notes');
             $table->boolean('billable');
             $table->boolean('is_closed');
             $table->boolean('is_locked');
             $table->boolean('is_billed');
-            $table->string('locked_reason');
+            $table->string('locked_reason')->nullable();
             $table->date('spent_date');
             $table->timestamps();
         });

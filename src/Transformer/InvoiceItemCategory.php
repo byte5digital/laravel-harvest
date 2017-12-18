@@ -17,7 +17,7 @@ class InvoiceItemCategory implements Transformer
 
         $invoiceItemCat->external_id = $data['id'];
         $invoiceItemCat->name = $data['name'];
-        $invoiceItemCat->line_items = $data['line_items'];
+        $invoiceItemCat->use_as_expense = $data['use_as_expense'];
         $invoiceItemCat->use_as_service = $data['use_as_service'];
 
         return $invoiceItemCat;

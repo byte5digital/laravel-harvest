@@ -35,8 +35,7 @@ class ApiManager
         $endpointClass = 'Naoray\LaravelHarvest\Endpoints\\'.$this->guessEndpointName($name);
 
         if (! class_exists($endpointClass)) {
-            dd($name);
-            throw new \RuntimeException("Endpoint $endpointClass does not exist!");
+            throw new \RuntimeException("Endpoint $name does not exist!");
         }
 
         $this->endpoint = new $endpointClass;

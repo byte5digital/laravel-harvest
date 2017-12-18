@@ -18,7 +18,7 @@ class CreateHarvestTasksTable extends Migration
             $table->integer('external_id');
             $table->string('name');
             $table->boolean('billable_by_default');
-            $table->float('default_hourly_rate', 12, 2);
+            $table->float('default_hourly_rate', 12, 2)->nullable();
             $table->boolean('is_default');
             $table->boolean('is_active');
             $table->timestamps();

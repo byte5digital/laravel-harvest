@@ -26,8 +26,8 @@ trait CanGuessEndpointNames
         'TaskAssignment',
         'Task',
         'TimeEntry',
-        'User',
         'UserAssignment',
+        'User',
     ];
 
     /**

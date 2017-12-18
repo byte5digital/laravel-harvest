@@ -18,6 +18,7 @@ class CreateHarvestInvoiceItemCategoriesTable extends Migration
             $table->integer('external_id');
             $table->string('name');
             $table->boolean('use_as_service');
+            $table->boolean('use_as_expense');
             $table->timestamps();
         });
     }

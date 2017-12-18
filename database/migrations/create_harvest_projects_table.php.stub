@@ -23,7 +23,7 @@ class CreateHarvestProjectsTable extends Migration
             $table->boolean('is_billable');
             $table->boolean('is_fixed_fee');
             $table->string('bill_by');
-            $table->float('hourly_rate', 12, 2);
+            $table->float('hourly_rate', 12, 2)->nullable();
             $table->float('budget', 12, 2)->nullable();
             $table->string('budget_by');
             $table->boolean('notify_when_over_budget');

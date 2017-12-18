@@ -19,8 +19,8 @@ class CreateHarvestUserAssignmentsTable extends Migration
             $table->integer('user_id');
             $table->boolean('is_active');
             $table->boolean('is_project_manager');
-            $table->float('hourly_rate', 12, 2);
-            $table->float('budget', 12, 2);
+            $table->float('hourly_rate', 12, 2)->nullable();
+            $table->float('budget', 12, 2)->nullable();
             $table->timestamps();
         });
     }

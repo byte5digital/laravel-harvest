@@ -72,6 +72,50 @@ class ApiResult
     }
 
     /**
+     * Go to next page of json result.
+     *
+     * @return ApiResult
+     */
+    public function next()
+    {
+        if (! $this->hasNextPage()) {
+            throw new \RuntimeException('The result does not have a next page!');
+        }
+
+        return new self(
+            (new ApiGateway())->execute(array_get($this->jsonResult, 'links.next')),
+            $this->model
+        );
+    }
+
+    /**
+     * Go to previous page of json result.
+     *
+     * @return ApiResult
+     */
+    public function previous()
+    {
+        if (! $this->hasPreviousPage()) {
+            throw new \RuntimeException('The result does not have a previous page!');
+        }
+
+        return new self(
+            (new ApiGateway())->execute(array_get($this->jsonResult, 'links.previous')),
+            $this->model
+        );
+    }
+
+    public function hasNextPage()
+    {
+        return array_get($this->jsonResult, 'links.next') != null;
+    }
+
+    public function hasPreviousPage()
+    {
+        return array_get($this->jsonResult, 'links.previous') != null;
+    }
+
+    /**
      * @return int
      */
     private function countResults()
@@ -90,11 +134,6 @@ class ApiResult
     private function transformToModel($data)
     {
         return $this->convertDateTimes($data)->map(function ($data) {
-//            if (array_has($data, 'id')) {
-//                $data['external_id'] = $data['id'];
-//                unset($data['id']);
-//            }
-
             $transformerName = '\Naoray\LaravelHarvest\Transformer\\'.class_basename($this->model);
 
             return (new $transformerName)->transformModelAttributes($data);

@@ -43,21 +43,27 @@ abstract class BaseModel extends Model
     private function transformModelRelations()
     {
         collect($this->transformable)->each(function ($value, $key) {
-            if ($value === 'relation') {
+            if (! $this->{$key} ||  $this->{$key}['id'] == null) {
+                unset($this->{$key});
+                return;
+            }
+
+            if ($value === 'extern') {
+                $this->{$key.'_id'} = $this->{$key}['id'];
+                unset($this->{$key});
+            }
+
+            if ($value === 'relation' || array_get($value, 'type') === 'relation') {
                 $relationMethod = camel_case($key);
-
-                if (! $this->{$key}) {
-                    var_dump($key);
-                    return;
-                }
-
+                $relationClass = is_array($value) ? array_get($value, 'class') : $relationMethod;
                 if (! $this->$relationMethod()->exists()) {
-                    call_user_func('\Harvest::get'.ucfirst($relationMethod).'ById', $this->{$key}['id'])
+                    $baseKey = is_array($value) && array_has($value, 'baseKey') ? $value['baseKey'] : '';
+
+                    call_user_func('\Harvest::get'.ucfirst($relationClass).'ById', $this->{$key}['id'], array_get($this, $baseKey))
                         ->toCollection()->first()->save();
                 }
 
-                var_dump($this->{$key}['id']);
-                $relationClassName = '\Naoray\LaravelHarvest\Models\\'.ucfirst($relationMethod);
+                $relationClassName = '\Naoray\LaravelHarvest\Models\\'.ucfirst($relationClass);
                 $this->{$key.'_id'} = (new $relationClassName())->whereExternalId($this->{$key}['id'])->first()->id;
                 unset($this->{$key});
             }

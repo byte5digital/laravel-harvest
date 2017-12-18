@@ -52,10 +52,13 @@ abstract class BaseEndpoint
 
     /**
      * @param $id
+     * @param $baseId
      * @return mixed
      */
-    public function id($id)
+    public function id($id, $baseId = '')
     {
+        $this->baseId = $baseId;
+
         $this->buildUrl('/'.$id);
 
         return $this->get();

@@ -23,10 +23,10 @@ class CreateHarvestTimeEntriesTable extends Migration
             $table->integer('task_id');
             $table->integer('task_assignment_id');
             $table->integer('invoice_id')->nullable();
-            $table->json('reference')->nullable();
+            $table->json('external_reference')->nullable();
             $table->float('hours', 12, 2);
-            $table->float('billable_rate', 12, 2);
-            $table->float('cost_rate', 12, 2);
+            $table->float('billable_rate', 12, 2)->nullable();
+            $table->float('cost_rate', 12, 2)->nullable();
             $table->string('notes')->nullable();
             $table->boolean('is_locked');
             $table->string('locked_reason')->nullable();

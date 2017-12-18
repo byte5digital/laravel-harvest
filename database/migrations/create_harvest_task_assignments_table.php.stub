@@ -18,8 +18,8 @@ class CreateHarvestTaskAssignmentsTable extends Migration
             $table->integer('external_id');
             $table->integer('task_id');
             $table->boolean('is_active');
-            $table->boolean('billable');
-            $table->float('hourly_rate', 12, 2);
+            $table->boolean('billable')->nullable();
+            $table->float('hourly_rate', 12, 2)->nullable();
             $table->float('budget', 12, 2)->nullable();
             $table->timestamps();
         });

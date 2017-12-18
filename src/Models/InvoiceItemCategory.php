@@ -13,7 +13,7 @@ class InvoiceItemCategory extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'external_id', 'name', 'line_items', 'use_as_service'
+        'external_id', 'name', 'use_as_expense', 'use_as_service'
     ];
 
     /**

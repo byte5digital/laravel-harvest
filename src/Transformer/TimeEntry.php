@@ -23,7 +23,7 @@ class TimeEntry implements Transformer
         $timeEntry->task = $data['task'];
         $timeEntry->task_assignment = $data['task_assignment'];
         $timeEntry->invoice = $data['invoice'];
-        $timeEntry->reference = $data['reference'];
+        $timeEntry->external_reference = $data['external_reference'];
         $timeEntry->hours = $data['hours'];
         $timeEntry->billable_rate = $data['billable_rate'];
         $timeEntry->cost_rate = $data['cost_rate'];

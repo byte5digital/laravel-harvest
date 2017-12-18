@@ -34,12 +34,20 @@ class TimeEntry extends BaseModel
      */
     protected $transformable = [
         'user' => 'relation',
-        'user_assignment' => 'relation',
         'client' => 'relation',
+        'invoice' => 'relation',
         'project' => 'relation',
         'task' => 'relation',
-        'task_assignment' => 'relation',
-        'invoice' => 'relation',
+        'task_assignment' => [
+            'type' => 'relation',
+            'class' => 'TaskAssignment',
+            'baseKey' => 'project.external_id',
+        ],
+        'user_assignment' => [
+            'type' => 'relation',
+            'class' => 'UserAssignment',
+            'baseKey' => 'project.external_id',
+        ],
     ];
 
     /**
