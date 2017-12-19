@@ -1,6 +1,7 @@
-<a name="laravel-harvest"/>
 # Laravel Harvest
 **A wrapper for the [Harvest API](https://help.getharvest.com/api-v2/).**
+
+<a name="install" />
 
 ## Install
 
@@ -12,7 +13,7 @@
 *If you only want to publish the config file add:* `--tag="config"`
 
 ## Table of Content
-- [Laravel-Harvest](#laravel-harvest)
+- [Install](#install)
 - [Clients](#clients)
 
 ## Usage
