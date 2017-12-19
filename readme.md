@@ -4,7 +4,6 @@
 <a name="install" />
 
 ## Install
-
 `composer require naoray/laravel-harvest`
 
 *If you want to persist harvest data, publish the migration:*
@@ -14,7 +13,17 @@
 
 ## Table of Content
 - [Install](#install)
-- [Clients](#clients)
+- [Usage](#usage)
+    + [Clients](#clients)
+    + [Company](#company)
+    + [Contacts](#contacts)
+    + [Estimates](#estimates)
+    + [Expenses](#expenses)
+    + [Expense Categories](#expense-categories)
+    + [Users](#users)
+    + [Converting Results](#converting)
+
+<a name="usage" />
 
 ## Usage
 You can use either the `Harvest` facade or the Api Manager for any request.
@@ -36,7 +45,7 @@ Harvest::getClientsById('12345');
 $manager->clients->id('12345');
 ```
 
-**Company**
+<a name="company"/>**Company**
 ```php
 // get Clients with Facade
 $result = Harvest::getCompany();
@@ -45,7 +54,7 @@ $result = Harvest::getCompany();
 $result = $manager->company->all();
 ```
 
-**Contacts**
+<a name="contacts"/>**Contacts**
 ```php
 // get Contacts with Facade
 $result = Harvest::getContacts();
@@ -59,7 +68,7 @@ Harvest::getContactsById('12345');
 $manager->contacts->id('12345');
 ```
 
-**Estimate**
+<a name="estimates"/>**Estimates**
 ```php
 // get Estimates with Facade
 $result = Harvest::getEstimates();
@@ -73,7 +82,35 @@ Harvest::getEstimateById('12345');
 $manager->estimates->id('12345');
 ```
 
-**Users**
+<a name="expenses"/>**Expenses**
+```php
+// get Expenses with Facade
+$result = Harvest::getExpenses();
+
+// get Expenses via ApiManager
+$result = $manager->expenses->all();
+
+// get Expense by Id
+Harvest::getExpenseById('12345');
+$manager->expenses->id('12345');
+```
+
+<a name="expense-categories"/>**Expense Categories**
+```php
+$expenseId = Harvest::getExpenses()->toCollection()->first();
+
+// get Expense Category with Facade
+Harvest::getExpenseCategories($expenseId);
+
+// get Expense Category via ApiManager
+$result = $manager->expenses->all($expenseId);
+
+// get Expense Category by Id
+Harvest::getExpenseCategoryById('12345', $expenseId);
+$manager->expenseCategory->id('12345', $expenseId);
+```
+
+<a name="users"/>**Users**
 ```php
 // get Users with Facade
 $result = Harvest::getUsers();
@@ -91,7 +128,7 @@ $manager->user->me();
 ```
 
 
-**Converting Results**
+<a name="converting"/>**Converting Results**
 ```php
 $result = Harvest::getUsers();
 
