@@ -97,17 +97,15 @@ $manager->expenses->id('12345');
 
 <a name="expense-categories"/>**Expense Categories**
 ```php
-$expenseId = Harvest::getExpenses()->toCollection()->first();
-
 // get Expense Category with Facade
-Harvest::getExpenseCategories($expenseId);
+Harvest::getExpenseCategorie);
 
 // get Expense Category via ApiManager
-$result = $manager->expenses->all($expenseId);
+$result = $manager->expenses->al);
 
 // get Expense Category by Id
-Harvest::getExpenseCategoryById('12345', $expenseId);
-$manager->expenseCategory->id('12345', $expenseId);
+Harvest::getExpenseCategoryById('12345');
+$manager->expenseCategory->id('12345');
 ```
 
 <a name="users"/>**Users**
