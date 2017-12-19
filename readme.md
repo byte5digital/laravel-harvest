@@ -1,3 +1,4 @@
+<a name="laravel-harvest"/>
 # Laravel Harvest
 **A wrapper for the [Harvest API](https://help.getharvest.com/api-v2/).**
 
@@ -10,22 +11,37 @@
 
 *If you only want to publish the config file add:* `--tag="config"`
 
-## Usage
+## Table of Content
+- [Laravel-Harvest](#laravel-harvest)
+- [Clients](#clients)
 
-**Clients**
+## Usage
+You can use either the `Harvest` facade or the Api Manager for any request.
+```php
+// instantiate api manager
+$manager = app()->make('harvest');
+```
+
+<a name="clients"/>**Clients**
 ```php
 // get Clients with Facade
 $result = Harvest::getClients();
 
 // get Clients via ApiManager
-$manager = app()->make('harvest');
-
 $result = $manager->clients->all();
 
-
 // get Clients by Id
-Harvest::getClientsById('12345')->toJson();
-$manager->clients->id('12345')->toJson();
+Harvest::getClientsById('12345');
+$manager->clients->id('12345');
+```
+
+**Company**
+```php
+// get Clients with Facade
+$result = Harvest::getCompany();
+
+// get Clients via ApiManager
+$result = $manager->company->all();
 ```
 
 **Contacts**
@@ -34,14 +50,26 @@ $manager->clients->id('12345')->toJson();
 $result = Harvest::getContacts();
 
 // get Contacts via ApiManager
-$manager = app()->make('harvest');
-
 $result = $manager->contacts->all();
 
 
 // get Contacts by Id
-Harvest::getContactsById('12345')->toJson();
-$manager->contacts->id('12345')->toJson();
+Harvest::getContactsById('12345');
+$manager->contacts->id('12345');
+```
+
+**Estimate**
+```php
+// get Estimates with Facade
+$result = Harvest::getEstimates();
+
+// get Estimates via ApiManager
+$result = $manager->estimates->all();
+
+
+// get Estimate by Id
+Harvest::getEstimateById('12345');
+$manager->estimates->id('12345');
 ```
 
 **Users**
@@ -50,14 +78,15 @@ $manager->contacts->id('12345')->toJson();
 $result = Harvest::getUsers();
 
 // get Users via ApiManager
-$manager = app()->make('harvest');
-
 $result = $manager->users->all();
 
-
 // get Users by Id
-Harvest::getUsersById('12345')->toJson();
-$manager->users->id('12345')->toJson();
+Harvest::getUsersById('12345');
+$manager->users->id('12345');
+
+// get current user
+Harvest::getCurrentUser();
+$manager->user->me();
 ```
 
 
@@ -71,10 +100,12 @@ $result->toJson();
 $result->toCollection();
 // convert result to paginated collection
 $result->toPaginatedCollection();
-```
 
-## Data not Stored
-- 
+// get next result page
+$result = $result->next();
+// get prev result page
+$result = $result->previous();
+```
 
 ## ToDo
 - add usage sections to readme
