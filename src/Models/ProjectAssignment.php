@@ -8,7 +8,9 @@ class ProjectAssignment extends BaseModel
      * @var array
      */
     protected $casts = [
-        'task_assignments' => 'array'
+        'task_assignments' => 'array',
+        'is_active' => 'boolean',
+        'is_project_manager' => 'boolean',
     ];
 
     /**

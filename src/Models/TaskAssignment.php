@@ -7,6 +7,14 @@ class TaskAssignment extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'is_active' => 'boolean',
+        'billable' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $dates = ['created_at', 'updated_at'];
 
     /**

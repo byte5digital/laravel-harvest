@@ -8,7 +8,15 @@ class User extends BaseModel
      * @var array
      */
     protected $casts = [
-        'roles' => 'array'
+        'roles' => 'array',
+        'has_access_to_all_future_projects' => 'boolean',
+        'is_contractor' => 'boolean',
+        'is_admin' => 'boolean',
+        'is_project_manager' => 'boolean',
+        'can_see_rates' => 'boolean',
+        'can_create_projects' => 'boolean',
+        'can_create_invoices' => 'boolean',
+        'is_active' => 'boolean',
     ];
 
     /**

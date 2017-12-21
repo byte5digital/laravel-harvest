@@ -9,6 +9,12 @@ class InvoiceMessage extends BaseModel
      */
     protected $casts = [
         'recipients' => 'array',
+        'include_link_to_client_invoice' => 'boolean',
+        'attach_pdf' => 'boolean',
+        'send_me_a_copy' => 'boolean',
+        'thank_you' => 'boolean',
+        'event_type' => 'boolean',
+        'reminder' => 'boolean',
     ];
 
     /**

@@ -9,6 +9,12 @@ class TimeEntry extends BaseModel
      */
     protected $casts = [
         'reference' => 'object',
+        'is_locked' => 'boolean',
+        'is_closed' => 'boolean',
+        'is_billed' => 'boolean',
+        'is_running' => 'boolean',
+        'billable' => 'boolean',
+        'budgeted' => 'boolean',
     ];
 
     /**

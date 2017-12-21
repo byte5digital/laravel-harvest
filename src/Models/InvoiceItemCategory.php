@@ -7,6 +7,14 @@ class InvoiceItemCategory extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'use_as_service' => 'boolean',
+        'use_as_expense' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $dates = ['created_at', 'updated_at'];
 
     /**

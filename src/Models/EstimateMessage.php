@@ -9,6 +9,8 @@ class EstimateMessage extends BaseModel
      */
     protected $casts = [
         'recipients' => 'array',
+        'send_me_a_copy' => 'boolean',
+        'event_type' => 'boolean',
     ];
 
     /**

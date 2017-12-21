@@ -7,6 +7,18 @@ class Company extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'is_active' => 'boolean',
+        'wants_timestamp_timers' => 'boolean',
+        'expense_feature' => 'boolean',
+        'invoice_feature' => 'boolean',
+        'estimate_feature' => 'boolean',
+        'approval_feature' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $fillable = [
         'base_uri', 'full_domain', 'name', 'is_active', 'week_start_day',
         'wants_timestamp_timers', 'wants_timestamp_timers', 'time_format',

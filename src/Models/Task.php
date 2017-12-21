@@ -7,6 +7,15 @@ class Task extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'billable_by_default' => 'boolean',
+        'is_default' => 'boolean',
+        'is_active' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $dates = ['created_at', 'updated_at'];
 
     /**

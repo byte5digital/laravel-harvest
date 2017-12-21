@@ -7,6 +7,18 @@ class Project extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'is_active' => 'boolean',
+        'is_billable' => 'boolean',
+        'is_fixed_fee' => 'boolean',
+        'notify_when_over_budget' => 'boolean',
+        'show_budget_to_all' => 'boolean',
+        'cost_budget_include_expenses' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $dates = [
         'created_at', 'updated_at', 'over_budget_notification_date', 'starts_on', 'ends_on'
     ];

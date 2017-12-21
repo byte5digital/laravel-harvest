@@ -9,6 +9,10 @@ class Expense extends BaseModel
      */
     protected $casts = [
         'receipt' => 'object',
+        'billable' => 'boolean',
+        'is_closed' => 'boolean',
+        'is_locked' => 'boolean',
+        'is_billed' => 'boolean',
     ];
 
     /**

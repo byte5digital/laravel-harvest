@@ -7,6 +7,14 @@ class UserAssignment extends BaseModel
     /**
      * @var array
      */
+    protected $casts = [
+        'is_active' => 'boolean',
+        'is_project_manager' => 'boolean',
+    ];
+
+    /**
+     * @var array
+     */
     protected $dates = ['created_at', 'updated_at'];
 
     /**
