@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest;
+namespace Byte5\LaravelHarvest;
 
 use Illuminate\Support\ServiceProvider;
 

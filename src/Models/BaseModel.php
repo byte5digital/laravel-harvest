@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Models;
+namespace Byte5\LaravelHarvest\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -63,7 +63,7 @@ abstract class BaseModel extends Model
                 $relationMethod = camel_case($key);
                 $relationClass = is_array($value) ? array_get($value, 'class') : $relationMethod;
 
-                $relationClassName = '\Naoray\LaravelHarvest\Models\\'.ucfirst($relationClass);
+                $relationClassName = '\Byte5\LaravelHarvest\Models\\'.ucfirst($relationClass);
                 $this->{$key.'_id'} = optional((new $relationClassName())->whereExternalId($this->{$key}['id'])->first())->id;
 
                 if (! $this->$relationMethod()->exists()) {

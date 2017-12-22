@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class EstimateItemCategory extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class EstimateItemCategory extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\EstimateItemCategory::class;
+        return \Byte5\LaravelHarvest\Models\EstimateItemCategory::class;
     }
 }

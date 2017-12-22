@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class TimeEntry extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class TimeEntry extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\TimeEntry::class;
+        return \Byte5\LaravelHarvest\Models\TimeEntry::class;
     }
 }

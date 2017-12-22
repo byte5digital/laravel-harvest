@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoray\LaravelHarvest;
+namespace Byte5\LaravelHarvest;
 
-use Naoray\LaravelHarvest\Traits\CanConvertDateTimes;
+use Byte5\LaravelHarvest\Traits\CanConvertDateTimes;
 
 class ApiResult
 {
@@ -134,7 +134,7 @@ class ApiResult
     private function transformToModel($data)
     {
         return $this->convertDateTimes($data)->map(function ($data) {
-            $transformerName = '\Naoray\LaravelHarvest\Transformer\\'.class_basename($this->model);
+            $transformerName = '\Byte5\LaravelHarvest\Transformer\\'.class_basename($this->model);
 
             return (new $transformerName)->transformModelAttributes($data);
         });

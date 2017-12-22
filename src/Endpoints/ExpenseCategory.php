@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class ExpenseCategory extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class ExpenseCategory extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\ExpenseCategory::class;
+        return \Byte5\LaravelHarvest\Models\ExpenseCategory::class;
     }
 }

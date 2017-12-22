@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class Role extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class Role extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\Role::class;
+        return \Byte5\LaravelHarvest\Models\Role::class;
     }
 }

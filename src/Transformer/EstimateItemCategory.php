@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Transformer;
+namespace Byte5\LaravelHarvest\Transformer;
 
-use Naoray\LaravelHarvest\Contracts\Transformer;
-use \Naoray\LaravelHarvest\Models\EstimateItemCategory as EstimateItemCategoryModel;
+use Byte5\LaravelHarvest\Contracts\Transformer;
+use \Byte5\LaravelHarvest\Models\EstimateItemCategory as EstimateItemCategoryModel;
 
 class EstimateItemCategory implements Transformer
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Contracts;
+namespace Byte5\LaravelHarvest\Contracts;
 
 interface Transformer
 {

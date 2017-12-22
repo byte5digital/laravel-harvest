@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Transformer;
+namespace Byte5\LaravelHarvest\Transformer;
 
-use Naoray\LaravelHarvest\Contracts\Transformer;
-use \Naoray\LaravelHarvest\Models\Contact as ContactModel;
+use Byte5\LaravelHarvest\Contracts\Transformer;
+use \Byte5\LaravelHarvest\Models\Contact as ContactModel;
 
 class Contact implements Transformer
 {

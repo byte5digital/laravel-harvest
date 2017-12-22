@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Transformer;
+namespace Byte5\LaravelHarvest\Transformer;
 
-use Naoray\LaravelHarvest\Contracts\Transformer;
-use \Naoray\LaravelHarvest\Models\Task as TaskModel;
+use Byte5\LaravelHarvest\Contracts\Transformer;
+use \Byte5\LaravelHarvest\Models\Task as TaskModel;
 
 class Task implements Transformer
 {

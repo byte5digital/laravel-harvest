@@ -1,12 +1,12 @@
 {
-    "name": "naoray/laravel-harvest",
-    "description": "A description for laravel-harvest.",
+    "name": "byte5digital/laravel-harvest",
+    "description": "A Laravel wrapper for the Harvest API.",
     "type": "package",
     "license": "MIT",
     "authors": [
         {
-            "name": "Naoray Kroaths",
-            "email": "krishan.koenig@googlemail.com"
+            "name": "Krishan König",
+            "email": "kkoenig@byte5.de"
         }
     ],
     "require": {
@@ -15,21 +15,24 @@
     },
     "autoload": {
         "psr-4": {
-            "Naoray\\LaravelHarvest\\": "./src"
+            "Byte5\\LaravelHarvest\\": "./src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Naoray\\LaravelHarvest\\Test\\": "tests"
+            "Byte5\\LaravelHarvest\\Test\\": "tests"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Naoray\\LaravelHarvest\\LaravelHarvestServiceProvider"
+                "Byte5\\LaravelHarvest\\LaravelHarvestServiceProvider"
             ],
             "aliases": {
-                "Harvest": "Naoray\\LaravelHarvest\\Harvest"
+                "Harvest": "Byte5\\LaravelHarvest\\Harvest"
             }
         }
     },

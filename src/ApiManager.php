@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoray\LaravelHarvest;
+namespace Byte5\LaravelHarvest;
 
-use Naoray\LaravelHarvest\Traits\CanGuessEndpointNames;
+use Byte5\LaravelHarvest\Traits\CanGuessEndpointNames;
 
 class ApiManager
 {
@@ -32,7 +32,7 @@ class ApiManager
      */
     private function setEndpoint($name)
     {
-        $endpointClass = 'Naoray\LaravelHarvest\Endpoints\\'.$this->guessEndpointName($name);
+        $endpointClass = 'Byte5\LaravelHarvest\Endpoints\\'.$this->guessEndpointName($name);
 
         if (! class_exists($endpointClass)) {
             throw new \RuntimeException("Endpoint $name does not exist!");

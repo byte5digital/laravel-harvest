@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class TaskAssignment extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class TaskAssignment extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\TaskAssignment::class;
+        return \Byte5\LaravelHarvest\Models\TaskAssignment::class;
     }
 }

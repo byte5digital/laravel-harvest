@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class EstimateMessage extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class EstimateMessage extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\EstimateMessage::class;
+        return \Byte5\LaravelHarvest\Models\EstimateMessage::class;
     }
 }

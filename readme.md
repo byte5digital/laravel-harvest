@@ -1,13 +1,17 @@
-# Laravel Harvest
-**A wrapper for the [Harvest API](https://help.getharvest.com/api-v2/).**
+#  A Laravel wrapper for the [Harvest API](https://help.getharvest.com/api-v2/)
+
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Travis](https://img.shields.io/travis/byte5digital/laravel-harvest.svg?style=flat-square)]()
+[![Total Downloads](https://img.shields.io/packagist/dt/byte5digital/laravel-harvest.svg?style=flat-square)](https://packagist.org/packages/byte5digital/laravel-harvest)
+
 
 <a name="install" />
 
 ## Install
-`composer require naoray/laravel-harvest`
+`composer require byte5digital/laravel-harvest`
 
 *If you want to persist harvest data, publish the migration:*
-`php artisan vendor:publish --provider="Naoray\LaravelHarvest\LaravelHarvestServiceProvider`
+`php artisan vendor:publish --provider="Byte5\LaravelHarvest\LaravelHarvestServiceProvider`
 
 *If you only want to publish the config file add:* `--tag="config"`
 
@@ -147,3 +151,24 @@ $result = $result->previous();
 - add usage sections to readme
 - update/create records
 - tests
+
+## Testing
+Run the tests with:
+
+``` bash
+vendor/bin/phpunit
+```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security
+If you discover any security-related issues, please email kkoenig@byte5.de instead of using the issue tracker.
+
+## License
+The MIT License (MIT). Please see [License File](/LICENSE.md) for more information.

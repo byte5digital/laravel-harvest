@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Endpoints;
+namespace Byte5\LaravelHarvest\Endpoints;
 
 class InvoiceMessage extends BaseEndpoint
 {
@@ -17,6 +17,6 @@ class InvoiceMessage extends BaseEndpoint
      */
     public function getModel()
     {
-        return \Naoray\LaravelHarvest\Models\InvoiceMessage::class;
+        return \Byte5\LaravelHarvest\Models\InvoiceMessage::class;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Traits;
+namespace Byte5\LaravelHarvest\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;

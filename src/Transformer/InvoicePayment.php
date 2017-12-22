@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Transformer;
+namespace Byte5\LaravelHarvest\Transformer;
 
-use Naoray\LaravelHarvest\Contracts\Transformer;
-use \Naoray\LaravelHarvest\Models\InvoicePayment as InvoicePaymentModel;
+use Byte5\LaravelHarvest\Contracts\Transformer;
+use \Byte5\LaravelHarvest\Models\InvoicePayment as InvoicePaymentModel;
 
 class InvoicePayment implements Transformer
 {

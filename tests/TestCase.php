@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Test;
+namespace Byte5\LaravelHarvest\Test;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -16,7 +16,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \Naoray\LaravelHarvest\LaravelHarvestServiceProvider::class,
+            \Byte5\LaravelHarvest\LaravelHarvestServiceProvider::class,
         ];
     }
 

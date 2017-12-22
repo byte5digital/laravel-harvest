@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelHarvest\Models;
+namespace Byte5\LaravelHarvest\Models;
 
 class Project extends BaseModel
 {
