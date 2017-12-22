@@ -20,7 +20,7 @@ class CreateHarvestInvoicePaymentsTable extends Migration
             $table->float('amount', 12, 2);
             $table->string('recorded_by');
             $table->string('recorded_by_email');
-            $table->string('notes');
+            $table->text('notes');
             $table->string('transaction_id');
             $table->dateTime('paid_at');
             $table->timestamps();

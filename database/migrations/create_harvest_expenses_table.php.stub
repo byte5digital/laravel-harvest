@@ -23,7 +23,7 @@ class CreateHarvestExpensesTable extends Migration
             $table->integer('user_assignment_id')->nullable();
             $table->integer('invoice_id')->nullable();
             $table->json('receipt')->nullable();
-            $table->string('notes');
+            $table->text('notes');
             $table->boolean('billable');
             $table->boolean('is_closed');
             $table->boolean('is_locked');

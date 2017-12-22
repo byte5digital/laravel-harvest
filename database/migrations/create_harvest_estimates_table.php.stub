@@ -30,7 +30,7 @@ class CreateHarvestEstimatesTable extends Migration
             $table->float('discount', 5, 2);
             $table->float('discount_amount', 12, 2);
             $table->string('subject');
-            $table->string('notes');
+            $table->text('notes');
             $table->string('currency');
             $table->date('issue_date');
             $table->dateTime('sent_at');

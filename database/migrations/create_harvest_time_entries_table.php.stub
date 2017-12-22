@@ -27,7 +27,7 @@ class CreateHarvestTimeEntriesTable extends Migration
             $table->float('hours', 12, 2);
             $table->float('billable_rate', 12, 2)->nullable();
             $table->float('cost_rate', 12, 2)->nullable();
-            $table->string('notes')->nullable();
+            $table->text('notes')->nullable();
             $table->boolean('is_locked');
             $table->string('locked_reason')->nullable();
             $table->boolean('is_closed');
