@@ -2,11 +2,11 @@
 
 namespace Byte5\LaravelHarvest;
 
-use Byte5\LaravelHarvest\Traits\CanGuessEndpointNames;
+use Byte5\LaravelHarvest\Traits\CanResolveEndpoints;
 
 class ApiManager
 {
-    use CanGuessEndpointNames;
+    use CanResolveEndpoints;
 
     /**
      * @var
@@ -32,13 +32,7 @@ class ApiManager
      */
     protected function setEndpoint($name)
     {
-        $endpointClass = 'Byte5\LaravelHarvest\Endpoints\\'.$this->guessEndpointName($name);
-
-        if (! class_exists($endpointClass)) {
-            throw new \RuntimeException("Endpoint $name does not exist!");
-        }
-
-        $this->endpoint = new $endpointClass;
+        $this->endpoint = $this->resolveEndpoint($name);
     }
 
     /**
