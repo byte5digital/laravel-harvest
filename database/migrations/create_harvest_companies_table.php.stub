@@ -30,7 +30,7 @@ class CreateHarvestCompaniesTable extends Migration
             $table->boolean('expense_feature');
             $table->boolean('invoice_feature');
             $table->boolean('estimate_feature');
-            $table->boolean('approval_feature');
+            $table->boolean('approval_feature')->nullable();
             $table->timestamps();
         });
     }

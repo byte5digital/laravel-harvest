@@ -19,4 +19,13 @@ class TaskAssignment extends BaseEndpoint
     {
         return \Byte5\LaravelHarvest\Models\TaskAssignment::class;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function fromProject($id)
+    {
+        $this->baseId = $id;
+    }
 }

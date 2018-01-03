@@ -16,10 +16,10 @@ class InvoicePayment implements Transformer
         $invoicePayment = (new InvoicePaymentModel())->firstOrNew(['external_id' => $data['id']]);
 
         $invoicePayment->external_id = $data['id'];
-        $invoicePayment->payment_gateway_id = $data['payment_gateway_id'];
+        $invoicePayment->payment_gateway_id = array_get($data, 'payment_gateway_id', null);
         $invoicePayment->amount = $data['amount'];
         $invoicePayment->recorded_by = $data['recorded_by'];
-        $invoicePayment->recorded_by_email = $data['name'];
+        $invoicePayment->recorded_by_email = array_get($data, 'recorded_by_email', null);
         $invoicePayment->notes = $data['notes'];
         $invoicePayment->transaction_id = $data['transaction_id'];
         $invoicePayment->paid_at = $data['paid_at'];

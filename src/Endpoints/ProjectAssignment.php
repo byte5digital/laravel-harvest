@@ -19,4 +19,17 @@ class ProjectAssignment extends BaseEndpoint
     {
         return \Byte5\LaravelHarvest\Models\ProjectAssignment::class;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromUser($id)
+    {
+        $this->baseId = $id;
+
+        $this->buildUrl();
+
+        return $this->getUrl();
+    }
 }

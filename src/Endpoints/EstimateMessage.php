@@ -19,4 +19,13 @@ class EstimateMessage extends BaseEndpoint
     {
         return \Byte5\LaravelHarvest\Models\EstimateMessage::class;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function fromEstimate($id)
+    {
+        $this->baseId = $id;
+    }
 }

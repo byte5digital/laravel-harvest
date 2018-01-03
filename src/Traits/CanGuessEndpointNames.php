@@ -37,7 +37,7 @@ trait CanGuessEndpointNames
     protected function guessEndpointName($name)
     {
         return collect($this->availableEndpoints)->filter(function ($endpoint) use ($name) {
-            return str_contains(str_singular($name), $endpoint);
+            return str_contains(str_singular(ucfirst($name)), $endpoint);
         })->first();
     }
 }

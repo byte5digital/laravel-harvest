@@ -30,38 +30,24 @@ abstract class BaseEndpoint
     public abstract function getModel();
 
     /**
-     * @param string $id
      * @return mixed
      */
-    public function all($id = '')
+    public function get()
     {
-        $this->baseId = $id;
-
         $this->buildUrl();
 
-        return $this->get();
-    }
-
-    /**
-     * @return mixed
-     */
-    protected function get()
-    {
-        return $this->url;
+        return $this->getUrl();
     }
 
     /**
      * @param $id
-     * @param $baseId
      * @return mixed
      */
-    public function id($id, $baseId = '')
+    public function find($id)
     {
-        $this->baseId = $baseId;
-
         $this->buildUrl('/'.$id);
 
-        return $this->get();
+        return $this->getUrl();
     }
 
     /**
@@ -73,6 +59,16 @@ abstract class BaseEndpoint
         $path = $this->replaceVarsInPath();
 
         $this->url = $this->apiV2Url.$path.$subPath;
+    }
+
+    /**
+     * Get endpoint url.
+     *
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**

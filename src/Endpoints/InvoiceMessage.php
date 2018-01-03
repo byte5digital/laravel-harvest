@@ -19,4 +19,13 @@ class InvoiceMessage extends BaseEndpoint
     {
         return \Byte5\LaravelHarvest\Models\InvoiceMessage::class;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function fromInvoice($id)
+    {
+        $this->baseId = $id;
+    }
 }

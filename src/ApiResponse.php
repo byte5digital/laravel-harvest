@@ -4,7 +4,7 @@ namespace Byte5\LaravelHarvest;
 
 use Byte5\LaravelHarvest\Traits\CanConvertDateTimes;
 
-class ApiResult
+class ApiResponse
 {
     use CanConvertDateTimes;
     
@@ -48,11 +48,11 @@ class ApiResult
     /**
      * Transforms results into collection.
      *
-     * @return Illuminate\Support\Collection
+     * @return \Illuminate\Support\Collection
      */
     public function toCollection()
     {
-        if ($this->countResults() == 1) {
+        if (! array_key_exists('total_entries', $this->jsonResult)) {
             return $this->transformToModel([$this->jsonResult]);
         }
 
@@ -74,7 +74,7 @@ class ApiResult
     /**
      * Go to next page of json result.
      *
-     * @return ApiResult
+     * @return ApiResponse
      */
     public function next()
     {
@@ -91,7 +91,7 @@ class ApiResult
     /**
      * Go to previous page of json result.
      *
-     * @return ApiResult
+     * @return ApiResponse
      */
     public function previous()
     {
@@ -113,18 +113,6 @@ class ApiResult
     public function hasPreviousPage()
     {
         return array_get($this->jsonResult, 'links.previous') != null;
-    }
-
-    /**
-     * @return int
-     */
-    private function countResults()
-    {
-        if (array_key_exists('total_entries', $this->jsonResult)) {
-            return $this->jsonResult['total_entries'];
-        }
-
-        return 1;
     }
 
     /**

@@ -3,9 +3,17 @@
 namespace Byte5\LaravelHarvest\Test;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use Byte5\LaravelHarvest\Test\Fakes\FakeApiManager;
 
 class TestCase extends Orchestra
 {
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->app->bind('harvest', FakeApiManager::class);
+    }
+
     /**
      * Get package providers.
      *
@@ -30,5 +38,12 @@ class TestCase extends Orchestra
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('app.key', '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm');
+        // Setup default database to use sqlite :memory:
+        $app['config']->set('database.default', 'testbench');
+        $app['config']->set('database.connections.testbench', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ]);
     }
 }

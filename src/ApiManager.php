@@ -30,7 +30,7 @@ class ApiManager
     /**
      * @param $name
      */
-    private function setEndpoint($name)
+    protected function setEndpoint($name)
     {
         $endpointClass = 'Byte5\LaravelHarvest\Endpoints\\'.$this->guessEndpointName($name);
 
@@ -47,7 +47,7 @@ class ApiManager
      */
     public function __get($name)
     {
-        $this->setEndpoint(ucfirst($name));
+        $this->setEndpoint($name);
 
         return $this;
     }
@@ -55,47 +55,56 @@ class ApiManager
     /**
      * @param $name
      * @param $arguments
-     * @return ApiResult
+     * @return ApiManager|ApiResponse
      */
     public function __call($name, $arguments)
     {
         $apiCall = null;
 
-        if ($this->isStaticCall()) {
-            $this->setEndpoint(str_after($name, 'get'));
-            $apiCall = $this->guessApiCall($name);
+        if ($this->isStaticCall() && ! $this->endpoint) {
+            $this->setEndpoint($name);
 
-        } else if (! method_exists($this->endpoint, $name)) {
+            return $this;
+        }
+
+        if (! method_exists($this->endpoint, $name)) {
             throw new \RuntimeException("Endpoint method $name does not exist!");
         }
 
-        $url = ! $apiCall
-            ? call_user_func_array( array($this->endpoint, $name), $arguments)
-            : call_user_func_array( array($this->endpoint, $apiCall), $arguments);
+        $url = call_user_func_array(array($this->endpoint, $name), $arguments);
 
-        $endpoint = $this->endpoint;
-        $this->endpoint = null;
+        if ($url == null) {
+            return $this;
+        }
 
-        return new ApiResult(
-            $this->gateway->execute($url),
-            $endpoint->getModel()
-        );
+        return tap($this->craftResponse($url), function () {
+                $this->clearEndpoint();
+        });
     }
 
     /**
-     * @param $name
-     * @return mixed
+     * Sets current endpoint to null.
      */
-    private function guessApiCall($name)
+    protected function clearEndpoint()
     {
-        return str_contains($name, 'Id') ? 'id'
-            : (str_contains($name, 'Current') ? 'me' : 'all');
+        $this->endpoint = null;
+    }
+
+    /**
+     * Crafts ApiResponse.
+     *
+     * @param $url
+     * @return ApiResponse
+     */
+    protected function craftResponse($url)
+    {
+        return new ApiResponse($this->gateway->execute($url), $this->endpoint->getModel());
     }
 
     /**
      * @return bool
      */
-    private function isStaticCall()
+    protected function isStaticCall()
     {
         return ! $this->endpoint;
     }

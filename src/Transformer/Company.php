@@ -31,7 +31,7 @@ class Company implements Transformer
         $company->expense_feature = $data['expense_feature'];
         $company->invoice_feature = $data['invoice_feature'];
         $company->estimate_feature = $data['estimate_feature'];
-        $company->approval_feature = $data['approval_feature'];
+        $company->approval_feature = array_get($data, 'approval_feature', null);
 
         return $company;
     }

@@ -19,4 +19,13 @@ class InvoicePayment extends BaseEndpoint
     {
         return \Byte5\LaravelHarvest\Models\InvoicePayment::class;
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function fromInvoice($id)
+    {
+        $this->baseId = $id;
+    }
 }
