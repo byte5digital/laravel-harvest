@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Estimate extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class Estimate extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -31,10 +36,7 @@ class Estimate extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'client' => 'relation',
-        'creator' => 'relation',
-    ];
+    protected $externalRelations = ['client', 'creator'];
 
     /**
      * Estimate constructor.

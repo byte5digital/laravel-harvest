@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class EstimateItemCategory extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class EstimateItemCategory extends Model
 {
     /**
      * @var array

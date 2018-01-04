@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class ExpenseCategory extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class ExpenseCategory extends Model
 {
     /**
      * @var array

@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Invoice extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class Invoice extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -32,14 +37,10 @@ class Invoice extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'client' => 'relation',
-        'estimate' => 'relation',
-        'retainer' => 'extern',
-        'creator' => [
-            'type' => 'relation',
-            'class' => 'User',
-        ],
+    protected $externalRelations = [
+        'client',
+        'estimate',
+        'creator' => 'user',
     ];
 
     /**

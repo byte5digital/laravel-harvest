@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class UserAssignment extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class UserAssignment extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -27,9 +32,7 @@ class UserAssignment extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'user' => 'relation',
-    ];
+    protected $externalRelations = ['user'];
 
     /**
      * UserAssignment constructor.

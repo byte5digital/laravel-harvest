@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Client extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class Client extends Model
 {
     /**
      * @var array

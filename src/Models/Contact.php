@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Contact extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class Contact extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -20,9 +25,7 @@ class Contact extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'client' => 'relation',
-    ];
+    protected $externalRelations = ['client'];
 
     /**
      * Contact constructor.

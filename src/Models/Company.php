@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Company extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class Company extends Model
 {
     /**
      * @var array

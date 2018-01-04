@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class TaskAssignment extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class TaskAssignment extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -27,9 +32,7 @@ class TaskAssignment extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'task' => 'relation',
-    ];
+    protected $externalRelations = ['task'];
 
     /**
      * TaskAssignment constructor.

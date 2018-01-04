@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class ProjectAssignment extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class ProjectAssignment extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -29,10 +34,7 @@ class ProjectAssignment extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'project' => 'relation',
-        'client' => 'relation',
-    ];
+    protected $externalRelations = ['project', 'client'];
 
     /**
      * ProjectAssignment constructor.

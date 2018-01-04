@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class InvoicePayment extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class InvoicePayment extends Model
 {
     /**
      * @var array

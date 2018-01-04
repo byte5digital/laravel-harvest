@@ -2,8 +2,13 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class TimeEntry extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+use Byte5\LaravelHarvest\Traits\HasExternalRelations;
+
+class TimeEntry extends Model
 {
+    use HasExternalRelations;
+
     /**
      * @var array
      */
@@ -38,22 +43,14 @@ class TimeEntry extends BaseModel
     /**
      * @var array
      */
-    protected $transformable = [
-        'user' => 'relation',
-        'client' => 'relation',
-        'invoice' => 'relation',
-        'project' => 'relation',
-        'task' => 'relation',
-        'task_assignment' => [
-            'type' => 'relation',
-            'class' => 'TaskAssignment',
-            'baseKey' => 'project.external_id',
-        ],
-        'user_assignment' => [
-            'type' => 'relation',
-            'class' => 'UserAssignment',
-            'baseKey' => 'project.external_id',
-        ],
+    protected $externalRelations = [
+        'user',
+        'client',
+        'invoice',
+        'project',
+        'task',
+        'taskAssignment',
+        'userAssignment',
     ];
 
     /**

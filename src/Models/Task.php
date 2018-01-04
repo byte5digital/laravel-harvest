@@ -2,7 +2,9 @@
 
 namespace Byte5\LaravelHarvest\Models;
 
-class Task extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class Task extends Model
 {
     /**
      * @var array
