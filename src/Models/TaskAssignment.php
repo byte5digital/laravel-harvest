@@ -30,11 +30,6 @@ class TaskAssignment extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = ['task'];
-
-    /**
      * TaskAssignment constructor.
      * @param array $attributes
      */
@@ -45,6 +40,14 @@ class TaskAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.task_assignments')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return ['task'];
     }
 
     /**

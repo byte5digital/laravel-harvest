@@ -35,15 +35,6 @@ class Invoice extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = [
-        'client',
-        'estimate',
-        'creator' => 'user',
-    ];
-
-    /**
      * Invoice constructor.
      * @param array $attributes
      */
@@ -54,6 +45,18 @@ class Invoice extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.invoices')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return [
+            'client',
+            'estimate',
+            'creator' => 'user',
+        ];
     }
 
     /**

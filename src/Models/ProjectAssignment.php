@@ -32,11 +32,6 @@ class ProjectAssignment extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = ['project', 'client'];
-
-    /**
      * ProjectAssignment constructor.
      * @param array $attributes
      */
@@ -47,6 +42,14 @@ class ProjectAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.project_assignments')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return ['project', 'client'];
     }
 
     /**

@@ -30,11 +30,6 @@ class UserAssignment extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = ['user'];
-
-    /**
      * UserAssignment constructor.
      * @param array $attributes
      */
@@ -45,6 +40,14 @@ class UserAssignment extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.user_assignments')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return ['user'];
     }
 
     /**

@@ -7,6 +7,11 @@ use Illuminate\Support\Collection;
 trait HasExternalRelations
 {
     /**
+     * @return array
+     */
+    abstract protected function getExternalRelations() : array;
+
+    /**
      * Loads relations from harvest api external relationships.
      *
      * @param  array|string $relations
@@ -17,7 +22,7 @@ trait HasExternalRelations
     {
         // normalize input
         if ($relations === '*') {
-            $relations = $this->externalRelations;
+            $relations = $this->getExternalRelations();
         }
 
         if (is_string($relations)) {
@@ -53,7 +58,7 @@ trait HasExternalRelations
      */
     private function relationExists($relation)
     {
-        return in_array($relation, $this->externalRelations) || array_has($this->externalRelations, $relation);
+        return in_array($relation, $this->getExternalRelations()) || array_has($this->getExternalRelations(), $relation);
     }
 
     /**
@@ -99,7 +104,7 @@ trait HasExternalRelations
      */
     private function getRelationKey($relation)
     {
-        return in_array($relation, $this->externalRelations)
-            ? $relation : $this->externalRelations[$relation];
+        return in_array($relation, $this->getExternalRelations())
+            ? $relation : $this->getExternalRelations()[$relation];
     }
 }

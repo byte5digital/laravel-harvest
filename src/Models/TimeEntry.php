@@ -41,19 +41,6 @@ class TimeEntry extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = [
-        'user',
-        'client',
-        'invoice',
-        'project',
-        'task',
-        'taskAssignment',
-        'userAssignment',
-    ];
-
-    /**
      * TimeEntry constructor.
      * @param array $attributes
      */
@@ -64,6 +51,22 @@ class TimeEntry extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.time_entries')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return [
+            'user',
+            'client',
+            'invoice',
+            'project',
+            'task',
+            'taskAssignment',
+            'userAssignment',
+        ];
     }
 
     /**

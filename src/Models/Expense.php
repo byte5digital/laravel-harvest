@@ -30,20 +30,8 @@ class Expense extends Model
      */
     protected $fillable = [
         'external_id', 'client_id', 'project_id', 'expense_category_id', 'user_id',
-        'invoice_id', 'receipt', 'notes', 'billable', 'is_closed',
+        'invoice_id', 'receipt', 'notes', 'billable', 'is_closed', 'external_user_id',
         'is_locked', 'is_billed', 'locked_reason', 'spent_date',
-    ];
-
-    /**
-     * @var array
-     */
-    protected $externalRelations = [
-        'client',
-        'project',
-        'expense_category',
-        'user',
-        'user_assignment',
-        'invoice',
     ];
 
     /**
@@ -57,6 +45,20 @@ class Expense extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.expenses')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return [
+            'client',
+            'project',
+            'expenseCategory',
+            'user',
+            'invoice',
+        ];
     }
 
     /**

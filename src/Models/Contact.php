@@ -23,11 +23,6 @@ class Contact extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $externalRelations = ['client'];
-
-    /**
      * Contact constructor.
      * @param array $attributes
      */
@@ -38,6 +33,14 @@ class Contact extends Model
         $this->setTable(
             config('harvest.table_prefix').config('harvest.table_names.contacts')
         );
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExternalRelations()
+    {
+        return ['client'];
     }
 
     public function client()
