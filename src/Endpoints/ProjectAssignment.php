@@ -24,7 +24,7 @@ class ProjectAssignment extends BaseEndpoint
      * @param $id
      * @return mixed
      */
-    public function getFromUser($id)
+    public function fromUser($id)
     {
         $this->baseId = $id;
     }
