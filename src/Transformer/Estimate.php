@@ -2,10 +2,10 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use Byte5\LaravelHarvest\Contracts\Transformer;
 use \Byte5\LaravelHarvest\Models\Estimate as EstimateModel;
+use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
-class Estimate implements Transformer
+class Estimate implements TransformerContract
 {
     /**
      * @param $data
@@ -16,7 +16,6 @@ class Estimate implements Transformer
         $estimate = (new EstimateModel())->firstOrNew(['external_id' => $data['id']]);
 
         $estimate->external_id = $data['id'];
-        $estimate->creator = $data['creator'];
         $estimate->line_items = $data['line_items'];
         $estimate->client_key = $data['client_key'];
         $estimate->number = $data['number'];
@@ -36,7 +35,9 @@ class Estimate implements Transformer
         $estimate->accepted_at = $data['accepted_at'];
         $estimate->declined_at = $data['declined_at'];
         $estimate->discount_amount = $data['discount_amount'];
-        $estimate->client = $data['client'];
+
+        $estimate->external_client_id = array_get($data, 'client.id');
+        $estimate->external_creator_id = array_get($data, 'creator.id');
 
         return $estimate;
     }

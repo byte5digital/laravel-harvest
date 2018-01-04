@@ -16,10 +16,11 @@ class TaskAssignment implements Transformer
         $taskAssignment = (new TaskAssignmentModel())->firstOrNew(['external_id' => $data['id']]);
 
         $taskAssignment->external_id = $data['id'];
-        $taskAssignment->task = $data['task'];
         $taskAssignment->is_active = $data['is_active'];
         $taskAssignment->hourly_rate = $data['hourly_rate'];
         $taskAssignment->budget = $data['budget'];
+
+        $taskAssignment->external_task_id = array_get($data, 'task.id');
 
         return $taskAssignment;
     }

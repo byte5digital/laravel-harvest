@@ -2,10 +2,10 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use Byte5\LaravelHarvest\Contracts\Transformer;
 use \Byte5\LaravelHarvest\Models\Contact as ContactModel;
+use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
-class Contact implements Transformer
+class Contact implements TransformerContract
 {
     /**
      * @param $data
@@ -23,7 +23,8 @@ class Contact implements Transformer
         $contact->phone_office = $data['phone_office'];
         $contact->phone_mobile = $data['phone_mobile'];
         $contact->fax = $data['fax'];
-        $contact->client = $data['client'];
+
+        $contact->external_client_id = array_get($data, 'client.id');
 
         return $contact;
     }

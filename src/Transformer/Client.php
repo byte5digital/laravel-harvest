@@ -2,10 +2,10 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use Byte5\LaravelHarvest\Contracts\Transformer;
 use \Byte5\LaravelHarvest\Models\Client as ClientModel;
+use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
-class Client implements Transformer
+class Client implements TransformerContract
 {
     /**
      * @param $data

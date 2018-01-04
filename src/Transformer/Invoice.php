@@ -16,10 +16,7 @@ class Invoice implements Transformer
         $invoice = (new InvoiceModel())->firstOrNew(['external_id' => $data['id']]);
 
         $invoice->external_id = $data['id'];
-        $invoice->client = $data['client'];
-        $invoice->estimate = $data['estimate'];
-        $invoice->retainer = $data['retainer'];
-        $invoice->creator = $data['creator'];
+//        $invoice->retainer = $data['retainer'];
         $invoice->line_items = $data['line_items'];
         $invoice->client_key = $data['client_key'];
         $invoice->number = $data['number'];
@@ -42,6 +39,10 @@ class Invoice implements Transformer
         $invoice->sent_at = $data['sent_at'];
         $invoice->paid_at = $data['paid_at'];
         $invoice->closed_at = $data['closed_at'];
+
+        $invoice->external_client_id = $data['client'];
+        $invoice->external_creator_id = $data['creator'];
+        $invoice->external_estimate_id = $data['estimate'];
 
         return $invoice;
     }

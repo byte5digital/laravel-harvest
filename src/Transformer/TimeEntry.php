@@ -16,13 +16,6 @@ class TimeEntry implements Transformer
         $timeEntry = (new TimeEntryModel())->firstOrNew(['external_id' => $data['id']]);
 
         $timeEntry->external_id = $data['id'];
-        $timeEntry->user = $data['user'];
-        $timeEntry->user_assignment = $data['user_assignment'];
-        $timeEntry->client = $data['client'];
-        $timeEntry->project = $data['project'];
-        $timeEntry->task = $data['task'];
-        $timeEntry->task_assignment = $data['task_assignment'];
-        $timeEntry->invoice = $data['invoice'];
         $timeEntry->external_reference = $data['external_reference'];
         $timeEntry->hours = $data['hours'];
         $timeEntry->billable_rate = $data['billable_rate'];
@@ -39,6 +32,14 @@ class TimeEntry implements Transformer
         $timeEntry->ended_time = $data['ended_time'];
         $timeEntry->spent_date = $data['spent_date'];
         $timeEntry->timer_started_at = $data['timer_started_at'];
+
+        $timeEntry->external_user_id = array_get($data, 'user.id');
+        $timeEntry->external_user_assignment_id = array_get($data, 'user_assignment.id');
+        $timeEntry->external_client_id = array_get($data, 'client.id');
+        $timeEntry->external_project_id = array_get($data, 'project.id');
+        $timeEntry->external_task_id = array_get($data, 'task.id');
+        $timeEntry->external_task_assignment_id = array_get($data, 'task_assignment.id');
+        $timeEntry->external_invoice_id = array_get($data, 'invoice.id');
 
         return $timeEntry;
     }

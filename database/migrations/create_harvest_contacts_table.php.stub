@@ -15,8 +15,9 @@ class CreateHarvestContactsTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('client_id')->nullable();
             $table->integer('external_id');
-            $table->integer('client_id');
+            $table->integer('external_client_id');
             $table->string('title')->nullable();
             $table->string('first_name');
             $table->string('last_name');

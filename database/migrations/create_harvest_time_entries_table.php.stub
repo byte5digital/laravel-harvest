@@ -15,14 +15,21 @@ class CreateHarvestTimeEntriesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('external_id');
-            $table->integer('user_id');
-            $table->integer('user_assignment_id');
-            $table->integer('client_id');
-            $table->integer('project_id');
-            $table->integer('task_id');
-            $table->integer('task_assignment_id');
+            $table->integer('user_id')->nullable();
+            $table->integer('user_assignment_id')->nullable();
+            $table->integer('client_id')->nullable();
+            $table->integer('project_id')->nullable();
+            $table->integer('task_id')->nullable();
+            $table->integer('task_assignment_id')->nullable();
             $table->integer('invoice_id')->nullable();
+            $table->integer('external_id');
+            $table->integer('external_user_id');
+            $table->integer('external_user_assignment_id');
+            $table->integer('external_client_id');
+            $table->integer('external_project_id');
+            $table->integer('external_task_id');
+            $table->integer('external_task_assignment_id');
+            $table->integer('external_invoice_id')->nullable();
             $table->json('external_reference')->nullable();
             $table->float('hours', 12, 2);
             $table->float('billable_rate', 12, 2)->nullable();

@@ -2,10 +2,10 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use Byte5\LaravelHarvest\Contracts\Transformer;
 use \Byte5\LaravelHarvest\Models\Company as CompanyModel;
+use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
-class Company implements Transformer
+class Company implements TransformerContract
 {
     /**
      * @param $data

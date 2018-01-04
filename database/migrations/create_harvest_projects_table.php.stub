@@ -15,8 +15,9 @@ class CreateHarvestProjectsTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('client_id')->nullable();
             $table->integer('external_id');
-            $table->integer('client_id');
+            $table->integer('external_client_id');
             $table->string('name');
             $table->string('code');
             $table->boolean('is_active');

@@ -16,7 +16,6 @@ class Project implements Transformer
         $project = (new ProjectModel())->firstOrNew(['external_id' => $data['id']]);
 
         $project->external_id = $data['id'];
-        $project->client = $data['client'];
         $project->name = $data['name'];
         $project->code = $data['code'];
         $project->is_active = $data['is_active'];
@@ -36,6 +35,8 @@ class Project implements Transformer
         $project->starts_on = $data['starts_on'];
         $project->ends_on = $data['ends_on'];
         $project->over_budget_notification_date = $data['over_budget_notification_date'];
+
+        $project->external_client_id = array_get($data, 'client.id');
 
         return $project;
     }

@@ -15,9 +15,11 @@ class CreateHarvestEstimatesTable extends Migration
 
         Schema::create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('client_id')->nullable();
+            $table->integer('creator_id')->nullable();
             $table->integer('external_id');
-            $table->integer('client_id');
-            $table->integer('creator_id');
+            $table->integer('external_creator_id');
+            $table->integer('external_client_id');
             $table->json('line_items');
             $table->string('client_key');
             $table->string('number');

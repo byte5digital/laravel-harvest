@@ -16,13 +16,14 @@ class ProjectAssignment implements Transformer
         $projectAssignment = (new ProjectAssignmentModel())->firstOrNew(['external_id' => $data['id']]);
 
         $projectAssignment->external_id = $data['id'];
-        $projectAssignment->project = $data['project'];
-        $projectAssignment->client = $data['client'];
         $projectAssignment->is_active = $data['is_active'];
         $projectAssignment->is_project_manager = $data['is_project_manager'];
         $projectAssignment->hourly_rate = $data['hourly_rate'];
         $projectAssignment->budget = $data['budget'];
         $projectAssignment->task_assignments = $data['task_assignments'];
+
+        $projectAssignment->external_project_id = array_get($data, 'project.id');
+        $projectAssignment->external_client_id = array_get($data, 'client.id');
 
         return $projectAssignment;
     }
