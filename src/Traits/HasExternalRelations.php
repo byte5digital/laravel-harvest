@@ -26,7 +26,7 @@ trait HasExternalRelations
         }
 
         if (is_string($relations)) {
-            $relations = func_get_args();
+            $relations = [$relations];
         }
 
         $relations = $this->filterRelations($relations);
