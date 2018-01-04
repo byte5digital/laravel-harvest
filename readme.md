@@ -4,153 +4,125 @@
 [![Travis](https://img.shields.io/travis/byte5digital/laravel-harvest.svg?style=flat-square)]()
 [![Total Downloads](https://img.shields.io/packagist/dt/byte5digital/laravel-harvest.svg?style=flat-square)](https://packagist.org/packages/byte5digital/laravel-harvest)
 
+A small wrapper for the harvest API which aims to make your life more easier.
 
-<a name="install" />
+*Currently it is only possible to receive data from harvest with this package but not to create content.*
 
 ## Install
 `composer require byte5digital/laravel-harvest`
 
-*If you want to persist harvest data, publish the migration:*
+*If you want to store harvest data into your database, set the `uses_database` in the `harvest` config to `true` and publish the migrations:*
+
 `php artisan vendor:publish --provider="Byte5\LaravelHarvest\LaravelHarvestServiceProvider`
 
 *If you only want to publish the config file add:* `--tag="config"`
 
-## Table of Content
-- [Install](#install)
-- [Usage](#usage)
-    + [Clients](#clients)
-    + [Company](#company)
-    + [Contacts](#contacts)
-    + [Estimates](#estimates)
-    + [Expenses](#expenses)
-    + [Expense Categories](#expense-categories)
-    + [Users](#users)
-    + [Converting Results](#converting)
-
-<a name="usage" />
-
 ## Usage
-You can use either the `Harvest` facade or the Api Manager for any request.
+You can use either the `Harvest` Facade or resolve the `ApiManager` out of the ioc container.
 ```php
-// instantiate api manager
-$manager = app()->make('harvest');
+// resolve out of ioc container
+$harvest = app()->make('harvest');
 ```
 
-<a name="clients"/>**Clients**
+### Getting Data
+Every Api call looks like this:
 ```php
-// get Clients with Facade
-$result = Harvest::getClients();
-
-// get Clients via ApiManager
-$result = $manager->clients->all();
-
-// get Clients by Id
-Harvest::getClientsById('12345');
-$manager->clients->id('12345');
+$harvest->model_name->get();
+Harvest::model_name()->get();
 ```
 
-<a name="company"/>**Company**
+You can either grab the results with `get()` or `find($id)`
 ```php
-// get Clients with Facade
-$result = Harvest::getCompany();
+// getting all clients
+$harvest->clients->get();
+Harvest::clients()->get();
 
-// get Clients via ApiManager
-$result = $manager->company->all();
+// getting a client with id of 12345
+$harvest->clients->find(12345);
+Harvest::clients()->find(12345);
+
+// getting all expenses
+$harvest->expenses->get();
+Harvest::expenses()->get();
+
+// getting an expense with id of 12345
+$harvest->expenses->find(12345);
+Harvest::expenses()->find(12345);
+
+//... you get the idea
 ```
 
-<a name="contacts"/>**Contacts**
+There are some cases which have different methods, because they rely on other objects.
 ```php
-// get Contacts with Facade
-$result = Harvest::getContacts();
+// get all user_assignments with the project id of 12345
+$harvest->userAssignments->fromProject(12345)->get()
 
-// get Contacts via ApiManager
-$result = $manager->contacts->all();
+// get an user_assignments with the id of 12345 which belongs to the project id of 4567
+$harvest->userAssignments->fromProject(4567)->find(12345)
 
+// get all estimate messages with the estimate id of 12345
+$harvest->estimateMessages->fromEstimate(12345)->get();
 
-// get Contacts by Id
-Harvest::getContactsById('12345');
-$manager->contacts->id('12345');
+// get an estimate messages with the id of 12345 which belongs to the estimate id of 4567
+$harvest->estimateMessages->fromEstimate(4567)->find(12345)
 ```
+List of exceptions:
+- EstimateMessage
+- InvoiceMessage
+- InvoicePayment
+- ProjectAssignment
+- TaskAssignment
+- UserAssignment
 
-<a name="estimates"/>**Estimates**
+### Handling Responses
+Api responses can be either converted into `json`, a `collection` or a `paginated collection` which is basically `json`
+combined with `collection`.
 ```php
-// get Estimates with Facade
-$result = Harvest::getEstimates();
-
-// get Estimates via ApiManager
-$result = $manager->estimates->all();
-
-
-// get Estimate by Id
-Harvest::getEstimateById('12345');
-$manager->estimates->id('12345');
-```
-
-<a name="expenses"/>**Expenses**
-```php
-// get Expenses with Facade
-$result = Harvest::getExpenses();
-
-// get Expenses via ApiManager
-$result = $manager->expenses->all();
-
-// get Expense by Id
-Harvest::getExpenseById('12345');
-$manager->expenses->id('12345');
-```
-
-<a name="expense-categories"/>**Expense Categories**
-```php
-// get Expense Category with Facade
-Harvest::getExpenseCategorie);
-
-// get Expense Category via ApiManager
-$result = $manager->expenses->al);
-
-// get Expense Category by Id
-Harvest::getExpenseCategoryById('12345');
-$manager->expenseCategory->id('12345');
-```
-
-<a name="users"/>**Users**
-```php
-// get Users with Facade
-$result = Harvest::getUsers();
-
-// get Users via ApiManager
-$result = $manager->users->all();
-
-// get Users by Id
-Harvest::getUsersById('12345');
-$manager->users->id('12345');
-
-// get current user
-Harvest::getCurrentUser();
-$manager->user->me();
-```
-
-
-<a name="converting"/>**Converting Results**
-```php
-$result = Harvest::getUsers();
+// receiving some response
+$respose = Harvest::users()->get();
 
 // convert result to json
 $result->toJson();
+
 // convert result to collection
 $result->toCollection();
+
 // convert result to paginated collection
 $result->toPaginatedCollection();
+```
 
+### Get All Pages from Harvest
+By default harvest gives back a JSON-response with up to 100 records. If your harvest entries exceeds 100 records,
+you can call `next()` on the result to get to the next 100 results.
+
+```php
 // get next result page
 $result = $result->next();
-// get prev result page
+
+// get previous result page
 $result = $result->previous();
 ```
 
+### Loading External Relations
+When you query the API for any object which has external relations, you might want to checkout the `loadExternal()`
+method to get those relations loaded locally.
+
+```php
+// loading all external relations of one expense model
+// by default if you have enabled `uses_database` in the config
+// all external relations are saved to the database.
+$expense->loadExternal();
+
+// load all external relations without saving to db
+$expense->loadExternal('*', false);
+
+// load only user and client relations
+$expense->loadExternal(['user', 'client']);
+```
+
 ## ToDo
-- add usage sections to readme
 - update/create records
-- tests
+- improve tests
 
 ## Testing
 Run the tests with:
@@ -158,6 +130,9 @@ Run the tests with:
 ``` bash
 vendor/bin/phpunit
 ```
+
+## Upgrading
+Please see [UPGRADING](UPGRADING.md) for details.
 
 ## Changelog
 
