@@ -1,5 +1,8 @@
 # Change Log
 
+## [v2.0](https://github.com/byte5digital/laravel-harvest/tree/v2.0) (2018-01-04)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v1.2.2...v2.0)
+
 ## [v1.2.2](https://github.com/byte5digital/laravel-harvest/tree/v1.2.2) (2017-12-22)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v1.2.1...v1.2.2)
 
