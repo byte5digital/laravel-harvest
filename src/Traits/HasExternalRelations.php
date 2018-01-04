@@ -90,7 +90,7 @@ trait HasExternalRelations
                                 ->toCollection()
                                 ->first();
 
-            if ($save) $relationModel->save();
+            if ($save && config('harvest.uses_database')) $relationModel->save();
 
             $this->$relationKey()->associate($relationModel);
         });
