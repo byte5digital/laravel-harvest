@@ -18,7 +18,7 @@ trait HasExternalRelations
      * @param bool $save
      * @return $this
      */
-    public function loadExternal($relations = '*', $save = false)
+    public function loadExternal($relations = '*', $save = true)
     {
         // normalize input
         if ($relations === '*') {
