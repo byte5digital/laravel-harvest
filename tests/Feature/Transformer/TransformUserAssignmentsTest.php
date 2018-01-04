@@ -10,8 +10,6 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 
 class TransformUserAssignmentsTest extends TestCase
 {
-    use MigrationSetup;
-
     /** @test **/
     function it_can_transform_user_assignments_api_responses_into_their_corresponding_models()
     {

@@ -10,8 +10,6 @@ use Byte5\LaravelHarvest\Models\EstimateItemCategory;
 
 class TransformEstimateItemCategoriesTest extends TestCase
 {
-    use MigrationSetup;
-
     /** @test **/
     function it_can_transform_estimate_item_categories_api_responses_into_their_corresponding_models()
     {
