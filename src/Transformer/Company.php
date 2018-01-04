@@ -13,7 +13,11 @@ class Company implements TransformerContract
      */
     public function transformModelAttributes($data)
     {
-        $company = (new CompanyModel())->firstOrNew(['full_domain' => $data['full_domain']]);
+        $company = new CompanyModel;
+
+        if (config('harvest.using_database')) {
+            $company = $company->firstOrNew(['external_id' => $data['full_domain']]);
+        }
 
         $company->base_uri = $data['base_uri'];
         $company->full_domain = $data['full_domain'];

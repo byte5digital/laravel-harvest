@@ -13,7 +13,11 @@ class Contact implements TransformerContract
      */
     public function transformModelAttributes($data)
     {
-        $contact = (new ContactModel())->firstOrNew(['external_id' => $data['id']]);
+        $contact = new ContactModel;
+
+        if (config('harvest.using_database')) {
+            $contact = $contact->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $contact->external_id = $data['id'];
         $contact->title = $data['title'];

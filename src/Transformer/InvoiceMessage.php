@@ -13,7 +13,11 @@ class InvoiceMessage implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $invoiceMessage = (new InvoiceMessageModel())->firstOrNew(['external_id' => $data['id']]);
+        $invoiceMessage = new InvoiceMessageModel;
+
+        if (config('harvest.using_database')) {
+            $invoiceMessage = $invoiceMessage->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $invoiceMessage->external_id = $data['id'];
         $invoiceMessage->sent_by = $data['sent_by'];

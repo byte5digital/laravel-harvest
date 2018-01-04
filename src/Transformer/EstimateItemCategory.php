@@ -13,7 +13,11 @@ class EstimateItemCategory implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $estimateItemCat = (new EstimateItemCategoryModel())->firstOrNew(['external_id' => $data['id']]);
+        $estimateItemCat = new EstimateItemCategoryModel;
+
+        if (config('harvest.using_database')) {
+            $estimateItemCat = $estimateItemCat->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $estimateItemCat->external_id = $data['id'];
         $estimateItemCat->name = $data['name'];

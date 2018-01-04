@@ -13,7 +13,11 @@ class Project implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $project = (new ProjectModel())->firstOrNew(['external_id' => $data['id']]);
+        $project = new ProjectModel;
+
+        if (config('harvest.using_database')) {
+            $project = $project->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $project->external_id = $data['id'];
         $project->name = $data['name'];

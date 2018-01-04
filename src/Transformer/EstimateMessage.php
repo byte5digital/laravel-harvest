@@ -13,7 +13,11 @@ class EstimateMessage implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $estimateMessage = (new EstimateMessageModel())->firstOrNew(['external_id' => $data['id']]);
+        $estimateMessage = new EstimateMessageModel;
+
+        if (config('harvest.using_database')) {
+            $estimateMessage = $estimateMessage->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $estimateMessage->external_id = $data['id'];
         $estimateMessage->sent_by = $data['sent_by'];

@@ -13,7 +13,11 @@ class Expense implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $expense = (new ExpenseModel())->firstOrNew(['external_id' => $data['id']]);
+        $expense = new ExpenseModel;
+
+        if (config('harvest.using_database')) {
+            $expense = $expense->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $expense->external_id = $data['id'];
         $expense->receipt = $data['receipt'];

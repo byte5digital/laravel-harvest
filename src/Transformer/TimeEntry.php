@@ -13,7 +13,11 @@ class TimeEntry implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $timeEntry = (new TimeEntryModel())->firstOrNew(['external_id' => $data['id']]);
+        $timeEntry = new TimeEntryModel;
+
+        if (config('harvest.using_database')) {
+            $timeEntry = $timeEntry->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $timeEntry->external_id = $data['id'];
         $timeEntry->external_reference = $data['external_reference'];

@@ -13,7 +13,11 @@ class User implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $user = (new UserModel())->firstOrNew(['external_id' => $data['id']]);
+        $user = new UserModel;
+
+        if (config('harvest.using_database')) {
+            $user = $user->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $user->external_id = $data['id'];
         $user->first_name = $data['first_name'];

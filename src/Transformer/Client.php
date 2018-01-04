@@ -13,7 +13,11 @@ class Client implements TransformerContract
      */
     public function transformModelAttributes($data)
     {
-        $client = (new ClientModel())->firstOrNew(['external_id' => $data['id']]);
+        $client = new ClientModel;
+
+        if (config('harvest.using_database')) {
+            $client = $client->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $client->external_id = $data['id'];
         $client->currency = $data['currency'];

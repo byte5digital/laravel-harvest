@@ -13,7 +13,11 @@ class InvoiceItemCategory implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $invoiceItemCat = (new InvoiceItemCategoryModel())->firstOrNew(['external_id' => $data['id']]);
+        $invoiceItemCat = new InvoiceItemCategoryModel;
+
+        if (config('harvest.using_database')) {
+            $invoiceItemCat = $invoiceItemCat->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $invoiceItemCat->external_id = $data['id'];
         $invoiceItemCat->name = $data['name'];

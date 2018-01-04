@@ -13,7 +13,11 @@ class InvoicePayment implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $invoicePayment = (new InvoicePaymentModel())->firstOrNew(['external_id' => $data['id']]);
+        $invoicePayment = new InvoicePaymentModel;
+
+        if (config('harvest.using_database')) {
+            $invoicePayment = $invoicePayment->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $invoicePayment->external_id = $data['id'];
         $invoicePayment->payment_gateway_id = array_get($data, 'payment_gateway_id', null);

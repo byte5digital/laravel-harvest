@@ -13,7 +13,11 @@ class ProjectAssignment implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $projectAssignment = (new ProjectAssignmentModel())->firstOrNew(['external_id' => $data['id']]);
+        $projectAssignment = new ProjectAssignmentModel;
+
+        if (config('harvest.using_database')) {
+            $projectAssignment = $projectAssignment->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $projectAssignment->external_id = $data['id'];
         $projectAssignment->is_active = $data['is_active'];

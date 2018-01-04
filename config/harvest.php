@@ -12,6 +12,19 @@ return [
     'account_id' => env('HARVEST_ACCOUNT_ID', ''),
 
     /*
+     * This option determines if the database is checked for existing
+     * record of the received data from the harvest api. If this
+     * option is set to true, every time you query data from
+     * the Harvest API and transform it into a collection
+     * the database is checked if this record already
+     * exists in your local database.
+     *
+     * If you set this option to true, don't forget to publish and
+     * migrate the migration tables!
+     */
+    'using_database' => false,
+
+    /*
      * Prefix used for all tables of this package. If you change
      * the prefix, don't forget to migrate afterwards.
      */

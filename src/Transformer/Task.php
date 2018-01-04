@@ -13,7 +13,11 @@ class Task implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $task = (new TaskModel())->firstOrNew(['external_id' => $data['id']]);
+        $task = new TaskModel;
+
+        if (config('harvest.using_database')) {
+            $task = $task->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $task->external_id = $data['id'];
         $task->name = $data['name'];

@@ -13,7 +13,11 @@ class ExpenseCategory implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $expenseCategory = (new ExpenseCategoryModel())->firstOrNew(['external_id' => $data['id']]);
+        $expenseCategory = new ExpenseCategoryModel;
+
+        if (config('harvest.using_database')) {
+            $expenseCategory = $expenseCategory->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $expenseCategory->external_id = $data['id'];
         $expenseCategory->name = $data['name'];

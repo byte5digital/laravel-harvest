@@ -13,7 +13,11 @@ class Role implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $role = (new RoleModel())->firstOrNew(['external_id' => $data['id']]);
+        $role = new RoleModel;
+
+        if (config('harvest.using_database')) {
+            $role = $role->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $role->external_id = $data['id'];
         $role->name = $data['name'];

@@ -13,7 +13,11 @@ class Estimate implements TransformerContract
      */
     public function transformModelAttributes($data)
     {
-        $estimate = (new EstimateModel())->firstOrNew(['external_id' => $data['id']]);
+        $estimate = new EstimateModel;
+
+        if (config('harvest.using_database')) {
+            $estimate = $estimate->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $estimate->external_id = $data['id'];
         $estimate->line_items = $data['line_items'];

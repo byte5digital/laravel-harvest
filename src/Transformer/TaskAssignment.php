@@ -13,7 +13,11 @@ class TaskAssignment implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $taskAssignment = (new TaskAssignmentModel())->firstOrNew(['external_id' => $data['id']]);
+        $taskAssignment = new TaskAssignmentModel;
+
+        if (config('harvest.using_database')) {
+            $taskAssignment = $taskAssignment->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $taskAssignment->external_id = $data['id'];
         $taskAssignment->is_active = $data['is_active'];

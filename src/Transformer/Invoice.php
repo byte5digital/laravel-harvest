@@ -13,7 +13,11 @@ class Invoice implements Transformer
      */
     public function transformModelAttributes($data)
     {
-        $invoice = (new InvoiceModel())->firstOrNew(['external_id' => $data['id']]);
+        $invoice = new InvoiceModel;
+
+        if (config('harvest.using_database')) {
+            $invoice = $invoice->firstOrNew(['external_id' => $data['id']]);
+        }
 
         $invoice->external_id = $data['id'];
 //        $invoice->retainer = $data['retainer'];
