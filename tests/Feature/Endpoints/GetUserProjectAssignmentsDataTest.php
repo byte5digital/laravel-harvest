@@ -20,6 +20,6 @@ class GetUserProjectAssignmentsDataTest extends TestCase
             $this->assertEquals('https://api.harvestapp.com/v2/users/12345/project_assignments', $this->harvest->getRequestUrl());
         });
 
-        $this->harvest->projectAssignments->getFromUser('12345');
+        $this->harvest->projectAssignments->fromUser('12345')->get();
     }
 }

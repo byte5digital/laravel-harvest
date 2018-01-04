@@ -27,9 +27,5 @@ class ProjectAssignment extends BaseEndpoint
     public function getFromUser($id)
     {
         $this->baseId = $id;
-
-        $this->buildUrl();
-
-        return $this->getUrl();
     }
 }
