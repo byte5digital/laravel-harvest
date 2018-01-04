@@ -15,7 +15,7 @@ class User implements Transformer
     {
         $user = new UserModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $user = $user->firstOrNew(['external_id' => $data['id']]);
         }
 

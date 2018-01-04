@@ -15,7 +15,7 @@ class Expense implements Transformer
     {
         $expense = new ExpenseModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $expense = $expense->firstOrNew(['external_id' => $data['id']]);
         }
 

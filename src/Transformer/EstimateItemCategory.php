@@ -15,7 +15,7 @@ class EstimateItemCategory implements Transformer
     {
         $estimateItemCat = new EstimateItemCategoryModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $estimateItemCat = $estimateItemCat->firstOrNew(['external_id' => $data['id']]);
         }
 

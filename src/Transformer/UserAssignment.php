@@ -15,7 +15,7 @@ class UserAssignment implements Transformer
     {
         $userAssignment = new UserAssignmentModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $userAssignment = $userAssignment->firstOrNew(['external_id' => $data['id']]);
         }
 

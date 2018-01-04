@@ -15,7 +15,7 @@ class Estimate implements TransformerContract
     {
         $estimate = new EstimateModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $estimate = $estimate->firstOrNew(['external_id' => $data['id']]);
         }
 

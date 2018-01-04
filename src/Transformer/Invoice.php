@@ -15,7 +15,7 @@ class Invoice implements Transformer
     {
         $invoice = new InvoiceModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $invoice = $invoice->firstOrNew(['external_id' => $data['id']]);
         }
 

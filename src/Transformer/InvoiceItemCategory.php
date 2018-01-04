@@ -15,7 +15,7 @@ class InvoiceItemCategory implements Transformer
     {
         $invoiceItemCat = new InvoiceItemCategoryModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $invoiceItemCat = $invoiceItemCat->firstOrNew(['external_id' => $data['id']]);
         }
 

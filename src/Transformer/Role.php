@@ -15,7 +15,7 @@ class Role implements Transformer
     {
         $role = new RoleModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $role = $role->firstOrNew(['external_id' => $data['id']]);
         }
 

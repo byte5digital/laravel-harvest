@@ -15,7 +15,7 @@ class ProjectAssignment implements Transformer
     {
         $projectAssignment = new ProjectAssignmentModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $projectAssignment = $projectAssignment->firstOrNew(['external_id' => $data['id']]);
         }
 

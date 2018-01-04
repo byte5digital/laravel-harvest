@@ -15,7 +15,7 @@ class TimeEntry implements Transformer
     {
         $timeEntry = new TimeEntryModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $timeEntry = $timeEntry->firstOrNew(['external_id' => $data['id']]);
         }
 

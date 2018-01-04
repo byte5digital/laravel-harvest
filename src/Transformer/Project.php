@@ -15,7 +15,7 @@ class Project implements Transformer
     {
         $project = new ProjectModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $project = $project->firstOrNew(['external_id' => $data['id']]);
         }
 

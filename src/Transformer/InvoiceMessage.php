@@ -15,7 +15,7 @@ class InvoiceMessage implements Transformer
     {
         $invoiceMessage = new InvoiceMessageModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $invoiceMessage = $invoiceMessage->firstOrNew(['external_id' => $data['id']]);
         }
 

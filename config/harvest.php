@@ -22,7 +22,7 @@ return [
      * If you set this option to true, don't forget to publish and
      * migrate the migration tables!
      */
-    'using_database' => false,
+    'uses_database' => false,
 
     /*
      * Prefix used for all tables of this package. If you change

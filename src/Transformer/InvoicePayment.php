@@ -15,7 +15,7 @@ class InvoicePayment implements Transformer
     {
         $invoicePayment = new InvoicePaymentModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $invoicePayment = $invoicePayment->firstOrNew(['external_id' => $data['id']]);
         }
 

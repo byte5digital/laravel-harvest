@@ -15,7 +15,7 @@ class Contact implements TransformerContract
     {
         $contact = new ContactModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $contact = $contact->firstOrNew(['external_id' => $data['id']]);
         }
 

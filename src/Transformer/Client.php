@@ -15,7 +15,7 @@ class Client implements TransformerContract
     {
         $client = new ClientModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $client = $client->firstOrNew(['external_id' => $data['id']]);
         }
 

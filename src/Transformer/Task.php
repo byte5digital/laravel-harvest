@@ -15,7 +15,7 @@ class Task implements Transformer
     {
         $task = new TaskModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $task = $task->firstOrNew(['external_id' => $data['id']]);
         }
 

@@ -15,7 +15,7 @@ class TaskAssignment implements Transformer
     {
         $taskAssignment = new TaskAssignmentModel;
 
-        if (config('harvest.using_database')) {
+        if (config('harvest.uses_database')) {
             $taskAssignment = $taskAssignment->firstOrNew(['external_id' => $data['id']]);
         }
 
