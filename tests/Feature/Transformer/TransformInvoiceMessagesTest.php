@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformInvoiceMessagesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_invoice_messages_api_responses_into_their_corresponding_models()
+    public function it_can_transform_invoice_messages_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, InvoiceMessage::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, InvoiceMessage::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof InvoiceMessage);
     }
 
     /** @test **/
-    function it_can_transform_invoice_messages_api_responses_into_a_paginated_collection()
+    public function it_can_transform_invoice_messages_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -50,16 +50,16 @@ class TransformInvoiceMessagesTest extends TestCase
                     'send_me_a_copy' => false,
                     'thank_you' => false,
                     'reminder' => false,
-                    'send_reminder_on' => NULL,
+                    'send_reminder_on' => null,
                     'created_at' => '2017-08-23T22:15:06Z',
                     'updated_at' => '2017-08-23T22:15:06Z',
                     'attach_pdf' => true,
-                    'event_type' => NULL,
+                    'event_type' => null,
                     'recipients' => [
                         [
                             'name' => 'Richard Roe',
                             'email' => 'richardroe@example.com',
-                        ]
+                        ],
                     ],
                     'subject' => 'Past due invoice reminder: #1001 from API Examples',
                     'body' => 'Dear Customer,
@@ -81,11 +81,11 @@ class TransformInvoiceMessagesTest extends TestCase
                     'send_me_a_copy' => true,
                     'thank_you' => false,
                     'reminder' => false,
-                    'send_reminder_on' => NULL,
+                    'send_reminder_on' => null,
                     'created_at' => '2017-08-23T22:14:49Z',
                     'updated_at' => '2017-08-23T22:14:49Z',
                     'attach_pdf' => true,
-                    'event_type' => NULL,
+                    'event_type' => null,
                     'recipients' => [
                         [
                             'name' => 'Richard Roe',
@@ -94,7 +94,7 @@ class TransformInvoiceMessagesTest extends TestCase
                         [
                             'name' => 'Bob Powell',
                             'email' => 'bobpowell@example.com',
-                        ]
+                        ],
                     ],
                     'subject' => 'Invoice #1001 from API Examples',
                     'body' => '---------------------------------------------
@@ -116,13 +116,13 @@ class TransformInvoiceMessagesTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/api/v2/invoices/13150403/messages?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/invoices/13150403/messages?page=1&per_page=100',
             ],
         ];

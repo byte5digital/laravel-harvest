@@ -25,7 +25,7 @@ class Project extends Model
      * @var array
      */
     protected $dates = [
-        'created_at', 'updated_at', 'over_budget_notification_date', 'starts_on', 'ends_on'
+        'created_at', 'updated_at', 'over_budget_notification_date', 'starts_on', 'ends_on',
     ];
 
     /**

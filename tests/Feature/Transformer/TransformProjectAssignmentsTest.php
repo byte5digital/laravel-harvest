@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformProjectAssignmentsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_project_assignments_api_responses_into_their_corresponding_models()
+    public function it_can_transform_project_assignments_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, ProjectAssignment::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, ProjectAssignment::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof ProjectAssignment);
     }
 
     /** @test **/
-    function it_can_transform_project_assignments_api_responses_into_a_paginated_collection()
+    public function it_can_transform_project_assignments_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -44,7 +44,7 @@ class TransformProjectAssignmentsTest extends TestCase
                         'id' => 125068554,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -65,7 +65,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:52:18Z',
                                 'updated_at' => '2017-06-26T21:52:18Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083365,
                                     'name' => 'Graphic Design',
@@ -78,7 +78,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:52:18Z',
                                 'updated_at' => '2017-06-26T21:52:18Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083366,
                                     'name' => 'Programming',
@@ -91,7 +91,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:52:18Z',
                                 'updated_at' => '2017-06-26T21:52:18Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083368,
                                     'name' => 'Project Management',
@@ -104,7 +104,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:52:18Z',
                                 'updated_at' => '2017-06-26T21:54:06Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083369,
                                     'name' => 'Research',
@@ -116,7 +116,7 @@ class TransformProjectAssignmentsTest extends TestCase
                         'id' => 125068553,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -137,7 +137,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:36:23Z',
                                 'updated_at' => '2017-06-26T21:36:23Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083365,
                                     'name' => 'Graphic Design',
@@ -150,7 +150,7 @@ class TransformProjectAssignmentsTest extends TestCase
                                 'created_at' => '2017-06-26T21:36:23Z',
                                 'updated_at' => '2017-06-26T21:36:23Z',
                                 'hourly_rate' => 100,
-                                'budget' => NULL,
+                                'budget' => null,
                                 'task' => [
                                     'id' => 8083366,
                                     'name' => 'Programming',
@@ -163,7 +163,7 @@ class TransformProjectAssignmentsTest extends TestCase
                             'created_at' => '2017-06-26T21:36:23Z',
                             'updated_at' => '2017-06-26T21:36:23Z',
                             'hourly_rate' => 100,
-                            'budget' => NULL,
+                            'budget' => null,
                             'task' => [
                                 'id' => 8083368,
                                 'name' => 'Project Management',
@@ -176,7 +176,7 @@ class TransformProjectAssignmentsTest extends TestCase
                             'created_at' => '2017-06-26T21:53:20Z',
                             'updated_at' => '2017-06-26T21:54:31Z',
                             'hourly_rate' => 100,
-                            'budget' => NULL,
+                            'budget' => null,
                             'task' => [
                                 'id' => 8083369,
                                 'name' => 'Research',
@@ -188,13 +188,13 @@ class TransformProjectAssignmentsTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/users/1782959/project_assignments?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/users/1782959/project_assignments?page=1&per_page=100',
             ],
         ];

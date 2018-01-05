@@ -14,7 +14,7 @@ class GetInvoicePaymentsDataTest extends TestCase
     }
 
     /** @test **/
-    function all_invoice_payments_associated_with_an_invoice_can_be_received()
+    public function all_invoice_payments_associated_with_an_invoice_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/invoices/12345/payments', $this->harvest->getRequestUrl());

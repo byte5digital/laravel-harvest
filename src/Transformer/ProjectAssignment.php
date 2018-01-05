@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\ProjectAssignment as ProjectAssignmentModel;
+use Byte5\LaravelHarvest\Models\ProjectAssignment as ProjectAssignmentModel;
 
 class ProjectAssignment implements Transformer
 {

@@ -19,7 +19,7 @@ class Contact extends Model
      */
     protected $fillable = [
         'external_id', 'title', 'first_name', 'last_name', 'email',
-        'phone_office', 'phone_mobile', 'fax', 'client_id'
+        'phone_office', 'phone_mobile', 'fax', 'client_id',
     ];
 
     /**

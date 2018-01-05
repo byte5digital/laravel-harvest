@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\InvoiceItemCategory as InvoiceItemCategoryModel;
+use Byte5\LaravelHarvest\Models\InvoiceItemCategory as InvoiceItemCategoryModel;
 
 class InvoiceItemCategory implements Transformer
 {

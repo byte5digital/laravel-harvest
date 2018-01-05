@@ -11,7 +11,7 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformEstimateMessagesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_estimate_messages_api_responses_into_their_corresponding_models()
+    public function it_can_transform_estimate_messages_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -22,7 +22,7 @@ class TransformEstimateMessagesTest extends TestCase
     }
 
     /** @test **/
-    function it_can_transform_estimate_messages_api_responses_into_a_paginated_collection()
+    public function it_can_transform_estimate_messages_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -59,7 +59,7 @@ class TransformEstimateMessagesTest extends TestCase
                             'email' => 'bobpowell@example.com',
                         ],
                     ],
-                    'event_type' => NULL,
+                    'event_type' => null,
                     'subject' => 'Estimate #1001 from API Examples',
                     'body' => '---------------------------------------------
                                 Estimate Summary
@@ -81,13 +81,13 @@ class TransformEstimateMessagesTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 1,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/estimates/1439818/messages?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/estimates/1439818/messages?page=1&per_page=100',
             ],
         ];

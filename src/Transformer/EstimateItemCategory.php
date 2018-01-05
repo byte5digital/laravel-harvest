@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\EstimateItemCategory as EstimateItemCategoryModel;
+use Byte5\LaravelHarvest\Models\EstimateItemCategory as EstimateItemCategoryModel;
 
 class EstimateItemCategory implements Transformer
 {

@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\Task as TaskModel;
+use Byte5\LaravelHarvest\Models\Task as TaskModel;
 
 class Task implements Transformer
 {

@@ -20,7 +20,7 @@ class Estimate extends Model
      * @var array
      */
     protected $dates = [
-        'created_at', 'updated_at', 'issue_date', 'sent_at', 'accepted_at', 'declined_at'
+        'created_at', 'updated_at', 'issue_date', 'sent_at', 'accepted_at', 'declined_at',
     ];
 
     /**
@@ -30,7 +30,7 @@ class Estimate extends Model
         'external_id', 'creator_id', 'line_items', 'client_key', 'number', 'purchase_order',
         'amount', 'tax', 'tax_amount', 'tax2', 'tax2_amount', 'discount', 'discount_amount',
         'subject', 'notes', 'currency', 'issue_date', 'sent_at', 'accepted_at',
-        'declined_at', 'discount_amount', 'client_id'
+        'declined_at', 'discount_amount', 'client_id',
     ];
 
     /**

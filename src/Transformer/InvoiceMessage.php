@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\InvoiceMessage as InvoiceMessageModel;
+use Byte5\LaravelHarvest\Models\InvoiceMessage as InvoiceMessageModel;
 
 class InvoiceMessage implements Transformer
 {
@@ -34,7 +34,6 @@ class InvoiceMessage implements Transformer
         $invoiceMessage->event_type = $data['event_type'];
         $invoiceMessage->reminder = $data['reminder'];
         $invoiceMessage->send_reminder_on = $data['send_reminder_on'];
-
 
         return $invoiceMessage;
     }

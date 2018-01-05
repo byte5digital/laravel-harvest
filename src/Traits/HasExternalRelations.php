@@ -103,7 +103,9 @@ trait HasExternalRelations
                                 ->toCollection()
                                 ->first();
 
-            if ($save && config('harvest.uses_database')) $relationModel->save();
+            if ($save && config('harvest.uses_database')) {
+                $relationModel->save();
+            }
 
             $this->$relationKey()->associate($relationModel);
         });
@@ -131,7 +133,7 @@ trait HasExternalRelations
      * Returns the key of the passed in relation.
      *
      * @param $relation
-     * @return String
+     * @return string
      */
     private function getRelationKey($relation)
     {

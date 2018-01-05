@@ -14,7 +14,7 @@ class GetRolesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_roles_can_be_received()
+    public function all_roles_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/roles', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetRolesDataTest extends TestCase
     }
 
     /** @test **/
-    function a_roles_can_be_received_by_id()
+    public function a_roles_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/roles/12345', $this->harvest->getRequestUrl());
