@@ -2,6 +2,7 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Travis](https://img.shields.io/travis/byte5digital/laravel-harvest.svg?style=flat-square)]()
+[![StyleCI](https://styleci.io/repos/114007216/shield?branch=master)](https://styleci.io/repos/114007216)
 [![Total Downloads](https://img.shields.io/packagist/dt/byte5digital/laravel-harvest.svg?style=flat-square)](https://packagist.org/packages/byte5digital/laravel-harvest)
 
 A small wrapper for the harvest API which aims to make your life more easier.
