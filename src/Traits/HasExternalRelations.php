@@ -2,8 +2,6 @@
 
 namespace Byte5\LaravelHarvest\Traits;
 
-use Illuminate\Support\Collection;
-
 trait HasExternalRelations
 {
     /**
@@ -40,13 +38,14 @@ trait HasExternalRelations
      * Only return relevant relations.
      *
      * @param $relations
-     * @return static
+     * @return Illuminate\Support\Collection
      */
     private function filterRelations($relations)
     {
         return collect($relations)->filter(function ($relation) {
             return $this->relationExists($relation)
-                || $this->relationHasNotBeenEstablished($relation);
+                && $this->externalRelationIdExists($relation)
+                && $this->relationHasNotBeenEstablished($relation);
         });
     }
 
@@ -62,6 +61,17 @@ trait HasExternalRelations
     }
 
     /**
+     * Checks if the external relation id exists.
+     *
+     * @param $relation
+     * @return bool
+     */
+    private function externalRelationIdExists($relation)
+    {
+        return $this->{'external_'.snake_case($relation).'_id'} != null;
+    }
+
+    /**
      * Checks if the relation has already been established.
      *
      * @param $relation
@@ -69,7 +79,7 @@ trait HasExternalRelations
      */
     private function relationHasNotBeenEstablished($relation)
     {
-        return ! $this->{$relation} || $this->{$relation.'_id'} != null;
+        return ! $this->{$relation} || $this->{snake_case($relation).'_id'} == null;
     }
 
     /**
@@ -77,11 +87,10 @@ trait HasExternalRelations
      *
      * @param $relations
      * @param $save
-     * @return Collection
      */
     private function mapRelations($relations, $save)
     {
-        return $relations->each(function ($relation) use ($save) {
+        $relations->each(function ($relation) use ($save) {
             $relationId = $this->{'external_'.snake_case($relation).'_id'};
             $relationKey = $this->getRelationKey($relation);
 
