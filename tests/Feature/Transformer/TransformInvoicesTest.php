@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformInvoicesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_invoices_api_responses_into_their_corresponding_models()
+    public function it_can_transform_invoices_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Invoice::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Invoice::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Invoice);
     }
 
     /** @test **/
-    function it_can_transform_invoices_api_responses_into_a_paginated_collection()
+    public function it_can_transform_invoices_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -60,8 +60,8 @@ class TransformInvoicesTest extends TestCase
                     'issue_date' => '2017-04-01',
                     'due_date' => '2017-04-01',
                     'sent_at' => '2017-08-23T22:25:59Z',
-                    'paid_at' => NULL,
-                    'closed_at' => NULL,
+                    'paid_at' => null,
+                    'closed_at' => null,
                     'created_at' => '2017-06-27T16:27:16Z',
                     'updated_at' => '2017-08-23T22:25:59Z',
                     'currency' => 'EUR',
@@ -69,8 +69,8 @@ class TransformInvoicesTest extends TestCase
                         'id' => 5735776,
                         'name' => '123 Industries',
                     ],
-                    'estimate' => NULL,
-                    'retainer' => NULL,
+                    'estimate' => null,
+                    'retainer' => null,
                     'creator' => [
                         'id' => 1782884,
                         'name' => 'Bob Powell',
@@ -119,17 +119,17 @@ class TransformInvoicesTest extends TestCase
                     'tax_amount' => 500,
                     'tax2' => 2,
                     'tax2_amount' => 200,
-                    'discount' => NULL,
+                    'discount' => null,
                     'discount_amount' => 0,
                     'subject' => 'Online Store - Phase 1',
                     'notes' => 'Some notes about the invoice.',
-                    'period_start' => NULL,
-                    'period_end' => NULL,
+                    'period_start' => null,
+                    'period_end' => null,
                     'issue_date' => '2017-02-01',
                     'due_date' => '2017-03-03',
                     'sent_at' => '2017-02-01T07:00:00Z',
                     'paid_at' => '2017-02-21T00:00:00Z',
-                    'closed_at' => NULL,
+                    'closed_at' => null,
                     'created_at' => '2017-06-27T16:24:30Z',
                     'updated_at' => '2017-06-27T16:24:57Z',
                     'currency' => 'USD',
@@ -140,7 +140,7 @@ class TransformInvoicesTest extends TestCase
                     'estimate' => [
                         'id' => 1439814,
                     ],
-                    'retainer' => NULL,
+                    'retainer' => null,
                     'creator' => [
                         'id' => 1782884,
                         'name' => 'Bob Powell',
@@ -167,15 +167,15 @@ class TransformInvoicesTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/invoices?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/invoices?page=1&per_page=100',
-            ]
+            ],
         ];
     }
 }

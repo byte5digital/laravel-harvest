@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\ExpenseCategory as ExpenseCategoryModel;
+use Byte5\LaravelHarvest\Models\ExpenseCategory as ExpenseCategoryModel;
 
 class ExpenseCategory implements Transformer
 {

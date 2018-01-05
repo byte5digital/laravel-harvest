@@ -14,7 +14,7 @@ class GetUserProjectAssignmentsDataTest extends TestCase
     }
 
     /** @test **/
-    function all_user_project_assignments_associated_with_an_user_can_be_received()
+    public function all_user_project_assignments_associated_with_an_user_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/users/12345/project_assignments', $this->harvest->getRequestUrl());

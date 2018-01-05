@@ -14,7 +14,7 @@ class GetEstimatesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_estimates_can_be_received()
+    public function all_estimates_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/estimates', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetEstimatesDataTest extends TestCase
     }
 
     /** @test **/
-    function a_estimate_can_be_received_by_id()
+    public function a_estimate_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/estimates/12345', $this->harvest->getRequestUrl());

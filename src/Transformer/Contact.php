@@ -2,7 +2,7 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use \Byte5\LaravelHarvest\Models\Contact as ContactModel;
+use Byte5\LaravelHarvest\Models\Contact as ContactModel;
 use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
 class Contact implements TransformerContract

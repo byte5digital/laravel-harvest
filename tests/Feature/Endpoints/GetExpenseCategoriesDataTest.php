@@ -14,7 +14,7 @@ class GetExpenseCategoriesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_expense_categories_can_be_received()
+    public function all_expense_categories_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/expense_categories', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetExpenseCategoriesDataTest extends TestCase
     }
 
     /** @test **/
-    function a_expense_categories_can_be_received_by_id()
+    public function a_expense_categories_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/expense_categories/12345', $this->harvest->getRequestUrl());

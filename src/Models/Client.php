@@ -22,7 +22,7 @@ class Client extends Model
      * @var array
      */
     protected $fillable = [
-        'external_id', 'currency', 'name', 'is_active', 'address'
+        'external_id', 'currency', 'name', 'is_active', 'address',
     ];
 
     /**

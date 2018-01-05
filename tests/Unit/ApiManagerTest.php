@@ -8,7 +8,7 @@ use Byte5\LaravelHarvest\Test\TestCase;
 class ApiManagerTest extends TestCase
 {
     /** @test **/
-    function the_endpoint_is_cleared_before_a_new_request_is_made()
+    public function the_endpoint_is_cleared_before_a_new_request_is_made()
     {
         Harvest::clients()->get();
 

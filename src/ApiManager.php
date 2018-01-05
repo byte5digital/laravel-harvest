@@ -65,14 +65,14 @@ class ApiManager
             throw new \RuntimeException("Endpoint method $name does not exist!");
         }
 
-        $url = call_user_func_array(array($this->endpoint, $name), $arguments);
+        $url = call_user_func_array([$this->endpoint, $name], $arguments);
 
         if ($url == null) {
             return $this;
         }
 
         return tap($this->craftResponse($url), function () {
-                $this->clearEndpoint();
+            $this->clearEndpoint();
         });
     }
 

@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformTasksTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_tasks_api_responses_into_their_corresponding_models()
+    public function it_can_transform_tasks_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Task::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Task::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Task);
     }
 
     /** @test **/
-    function it_can_transform_tasks_api_responses_into_a_paginated_collection()
+    public function it_can_transform_tasks_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -94,13 +94,13 @@ class TransformTasksTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 5,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/tasks?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/tasks?page=1&per_page=100',
             ],
         ];

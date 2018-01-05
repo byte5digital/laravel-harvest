@@ -14,7 +14,7 @@ class GetEstimateMessagesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_estimate_messages_associated_with_an_estimate_can_be_received()
+    public function all_estimate_messages_associated_with_an_estimate_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/estimates/12345/messages', $this->harvest->getRequestUrl());

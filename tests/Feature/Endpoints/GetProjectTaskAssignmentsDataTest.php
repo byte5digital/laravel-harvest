@@ -14,7 +14,7 @@ class GetProjectTaskAssignmentsDataTest extends TestCase
     }
 
     /** @test **/
-    function all_project_task_assignments_can_be_received()
+    public function all_project_task_assignments_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/projects/12345/task_assignments', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetProjectTaskAssignmentsDataTest extends TestCase
     }
 
     /** @test **/
-    function a_project_task_assignments_can_be_received_by_id()
+    public function a_project_task_assignments_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/projects/12345/task_assignments/67890', $this->harvest->getRequestUrl());

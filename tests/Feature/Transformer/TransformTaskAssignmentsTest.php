@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformTaskAssignmentsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_task_assignments_api_responses_into_their_corresponding_models()
+    public function it_can_transform_task_assignments_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, TaskAssignment::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, TaskAssignment::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof TaskAssignment);
     }
 
     /** @test **/
-    function it_can_transform_task_assignments_api_responses_into_a_paginated_collection()
+    public function it_can_transform_task_assignments_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -51,7 +51,7 @@ class TransformTaskAssignmentsTest extends TestCase
                         'name' => 'Research',
                     ],
                     'hourly_rate' => 100,
-                    'budget' => NULL,
+                    'budget' => null,
                 ],
                 [
                     'id' => 155505015,
@@ -64,7 +64,7 @@ class TransformTaskAssignmentsTest extends TestCase
                         'name' => 'Project Management',
                     ],
                     'hourly_rate' => 100,
-                    'budget' => NULL,
+                    'budget' => null,
                 ],
                 [
                     'id' => 155505014,
@@ -77,7 +77,7 @@ class TransformTaskAssignmentsTest extends TestCase
                         'name' => 'Programming',
                     ],
                     'hourly_rate' => 100,
-                    'budget' => NULL,
+                    'budget' => null,
                 ],
                 [
                     'id' => 155505013,
@@ -90,19 +90,19 @@ class TransformTaskAssignmentsTest extends TestCase
                         'name' => 'Graphic Design',
                     ],
                     'hourly_rate' => 100,
-                    'budget' => NULL,
+                    'budget' => null,
                 ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 4,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/projects/14308069/task_assignments?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/projects/14308069/task_assignments?page=1&per_page=100',
             ],
         ];

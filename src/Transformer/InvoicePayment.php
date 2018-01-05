@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\InvoicePayment as InvoicePaymentModel;
+use Byte5\LaravelHarvest\Models\InvoicePayment as InvoicePaymentModel;
 
 class InvoicePayment implements Transformer
 {

@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformProjectsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_projects_api_responses_into_their_corresponding_models()
+    public function it_can_transform_projects_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Project::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Project::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Project);
     }
 
     /** @test **/
-    function it_can_transform_projects_api_responses_into_a_paginated_collection()
+    public function it_can_transform_projects_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -50,12 +50,12 @@ class TransformProjectsTest extends TestCase
                     'budget_by' => 'project',
                     'notify_when_over_budget' => true,
                     'over_budget_notification_percentage' => 80,
-                    'over_budget_notification_date' => NULL,
+                    'over_budget_notification_date' => null,
                     'show_budget_to_all' => false,
                     'created_at' => '2017-06-26T21:52:18Z',
                     'updated_at' => '2017-06-26T21:54:06Z',
                     'starts_on' => '2017-06-01',
-                    'ends_on' => NULL,
+                    'ends_on' => null,
                     'is_billable' => true,
                     'is_fixed_fee' => false,
                     'notes' => '',
@@ -64,10 +64,10 @@ class TransformProjectsTest extends TestCase
                         'name' => '123 Industries',
                         'currency' => 'EUR',
                     ],
-                    'cost_budget' => NULL,
+                    'cost_budget' => null,
                     'cost_budget_include_expenses' => false,
                     'hourly_rate' => 100,
-                    'fee' => NULL,
+                    'fee' => null,
                 ],
                 [
                     'id' => 14307913,
@@ -79,7 +79,7 @@ class TransformProjectsTest extends TestCase
                     'budget_by' => 'project',
                     'notify_when_over_budget' => true,
                     'over_budget_notification_percentage' => 80,
-                    'over_budget_notification_date' => NULL,
+                    'over_budget_notification_date' => null,
                     'show_budget_to_all' => false,
                     'created_at' => '2017-06-26T21:36:23Z',
                     'updated_at' => '2017-06-26T21:54:46Z',
@@ -93,22 +93,22 @@ class TransformProjectsTest extends TestCase
                         'name' => 'ABC Corp',
                         'currency' => 'USD',
                     ],
-                    'cost_budget' => NULL,
+                    'cost_budget' => null,
                     'cost_budget_include_expenses' => false,
                     'hourly_rate' => 100,
-                    'fee' => NULL,
+                    'fee' => null,
                 ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/projects?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/projects?page=1&per_page=100',
             ],
         ];

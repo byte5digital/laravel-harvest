@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformContactsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_contacts_api_responses_into_their_corresponding_models()
+    public function it_can_transform_contacts_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Contact::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Contact::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Contact);
     }
 
     /** @test **/
-    function it_can_transform_contacts_api_responses_into_a_paginated_collection()
+    public function it_can_transform_contacts_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -70,21 +70,21 @@ class TransformContactsTest extends TestCase
                     'client' => [
                         'id' => 5735776,
                         'name' => '123 Industries',
-                    ]
+                    ],
                 ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
               'first' => 'https://api.harvestapp.com/v2/contacts?page=1&per_page=100',
-              'next' => NULL,
-              'previous' => NULL,
+              'next' => null,
+              'previous' => null,
               'last' => 'https://api.harvestapp.com/v2/contacts?page=1&per_page=100',
-            ]
+            ],
         ];
     }
 }

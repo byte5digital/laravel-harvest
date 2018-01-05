@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformUserAssignmentsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_user_assignments_api_responses_into_their_corresponding_models()
+    public function it_can_transform_user_assignments_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, UserAssignment::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, UserAssignment::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof UserAssignment);
     }
 
     /** @test **/
-    function it_can_transform_user_assignments_api_responses_into_a_paginated_collection()
+    public function it_can_transform_user_assignments_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -44,7 +44,7 @@ class TransformUserAssignmentsTest extends TestCase
                     'id' => 125068554,
                     'is_project_manager' => true,
                     'is_active' => true,
-                    'budget' => NULL,
+                    'budget' => null,
                     'created_at' => '2017-06-26T22:32:52Z',
                     'updated_at' => '2017-06-26T22:32:52Z',
                     'hourly_rate' => 100,
@@ -57,7 +57,7 @@ class TransformUserAssignmentsTest extends TestCase
                     'id' => 125066109,
                     'is_project_manager' => true,
                     'is_active' => true,
-                    'budget' => NULL,
+                    'budget' => null,
                     'created_at' => '2017-06-26T21:52:18Z',
                     'updated_at' => '2017-06-26T21:52:18Z',
                     'hourly_rate' => 100,
@@ -70,13 +70,13 @@ class TransformUserAssignmentsTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/projects/14308069/user_assignments?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/projects/14308069/user_assignments?page=1&per_page=100',
             ],
         ];

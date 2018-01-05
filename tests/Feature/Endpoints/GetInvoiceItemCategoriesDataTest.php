@@ -14,7 +14,7 @@ class GetInvoiceItemCategoriesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_invoice_item_categories_can_be_received()
+    public function all_invoice_item_categories_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/invoice_item_categories', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetInvoiceItemCategoriesDataTest extends TestCase
     }
 
     /** @test **/
-    function a_invoice_item_categories_can_be_received_by_id()
+    public function a_invoice_item_categories_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/invoice_item_categories/12345', $this->harvest->getRequestUrl());

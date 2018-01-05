@@ -14,7 +14,7 @@ class GetTimeEntriesDataTest extends TestCase
     }
 
     /** @test **/
-    function all_time_entries_can_be_received()
+    public function all_time_entries_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/time_entries', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetTimeEntriesDataTest extends TestCase
     }
 
     /** @test **/
-    function a_time_entries_can_be_received_by_id()
+    public function a_time_entries_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/time_entries/12345', $this->harvest->getRequestUrl());
