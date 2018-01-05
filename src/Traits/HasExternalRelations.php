@@ -94,6 +94,10 @@ trait HasExternalRelations
             $relationId = $this->{'external_'.snake_case($relation).'_id'};
             $relationKey = $this->getRelationKey($relation);
 
+            if ($existingModel = $this->checkForLocalExistence($relationKey, $relationId)) {
+                return $this->$relationKey()->associate($existingModel);
+            }
+
             $relationModel = call_user_func('Harvest::'.$relationKey)
                                 ->find($relationId)
                                 ->toCollection()
@@ -103,6 +107,24 @@ trait HasExternalRelations
 
             $this->$relationKey()->associate($relationModel);
         });
+    }
+
+    /**
+     * Checks for the local existence of the model via external_id.
+     *
+     * @param $modelKey
+     * @param $id
+     * @return Model
+     */
+    private function checkForLocalExistence($modelKey, $id)
+    {
+        if (! config('harvest.uses_database')) {
+            return;
+        }
+
+        $modelMethod = '\Byte5\LaravelHarvest\Models\\'.ucfirst(camel_case($modelKey)).'::whereExternalId';
+
+        return call_user_func($modelMethod, $id)->first();
     }
 
     /**
