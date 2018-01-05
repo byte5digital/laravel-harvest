@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.0.2](https://github.com/byte5digital/laravel-harvest/tree/v2.0.2) (2018-01-05)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.1...v2.0.2)
+
+**Added**
+
+- loadExternal\(\) needs to query for existing relations [\#1](https://github.com/byte5digital/laravel-harvest/issues/1)
+
 ## [v2.0.1](https://github.com/byte5digital/laravel-harvest/tree/v2.0.1) (2018-01-05)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0...v2.0.1)
 
