@@ -64,8 +64,8 @@ class TimeEntry extends Model
             'invoice',
             'project',
             'task',
-            'taskAssignment',
-            'userAssignment',
+//            'taskAssignment',
+//            'userAssignment',
         ];
     }
 
