@@ -14,7 +14,7 @@ class GetClientsDataTest extends TestCase
     }
 
     /** @test **/
-    function all_clients_can_be_received()
+    public function all_clients_can_be_received()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/clients', $this->harvest->getRequestUrl());
@@ -24,7 +24,7 @@ class GetClientsDataTest extends TestCase
     }
 
     /** @test **/
-    function a_client_can_be_received_by_id()
+    public function a_client_can_be_received_by_id()
     {
         $this->harvest->beforeCraftingResponse(function () {
             $this->assertEquals('https://api.harvestapp.com/v2/clients/12345', $this->harvest->getRequestUrl());

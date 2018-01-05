@@ -11,7 +11,7 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformEstimatesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_estimates_api_responses_into_their_corresponding_models()
+    public function it_can_transform_estimates_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -22,7 +22,7 @@ class TransformEstimatesTest extends TestCase
     }
 
     /** @test **/
-    function it_can_transform_estimates_api_responses_into_a_paginated_collection()
+    public function it_can_transform_estimates_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -58,8 +58,8 @@ class TransformEstimatesTest extends TestCase
                     'sent_at' => '2017-06-27T16:11:33Z',
                     'created_at' => '2017-06-27T16:11:24Z',
                     'updated_at' => '2017-06-27T16:13:56Z',
-                    'accepted_at' => NULL,
-                    'declined_at' => NULL,
+                    'accepted_at' => null,
+                    'declined_at' => null,
                     'currency' => 'USD',
                     'client' => [
                         'id' => 5735776,
@@ -79,8 +79,8 @@ class TransformEstimatesTest extends TestCase
                             'amount' => 10000,
                             'taxed' => true,
                             'taxed2' => true,
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
                 [
                     'id' => 1439814,
@@ -90,9 +90,9 @@ class TransformEstimatesTest extends TestCase
                     'amount' => 21000,
                     'tax' => 5,
                     'tax_amount' => 1000,
-                    'tax2' => NULL,
+                    'tax2' => null,
                     'tax2_amount' => 0,
-                    'discount' => NULL,
+                    'discount' => null,
                     'discount_amount' => 0,
                     'subject' => 'Online Store - Phase 1',
                     'notes' => 'Some notes about the estimate',
@@ -101,7 +101,7 @@ class TransformEstimatesTest extends TestCase
                     'created_at' => '2017-06-27T16:09:33Z',
                     'updated_at' => '2017-06-27T16:12:00Z',
                     'accepted_at' => '2017-06-27T16:10:32Z',
-                    'declined_at' => NULL,
+                    'declined_at' => null,
                     'currency' => 'USD',
                     'client' => [
                         'id' => 5735776,
@@ -121,20 +121,20 @@ class TransformEstimatesTest extends TestCase
                             'amount' => 20000,
                             'taxed' => true,
                             'taxed2' => false,
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/estimates?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/estimates?page=1&per_page=100',
             ],
         ];

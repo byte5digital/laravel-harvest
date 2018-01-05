@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\TimeEntry as TimeEntryModel;
+use Byte5\LaravelHarvest\Models\TimeEntry as TimeEntryModel;
 
 class TimeEntry implements Transformer
 {

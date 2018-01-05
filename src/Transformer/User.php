@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\User as UserModel;
+use Byte5\LaravelHarvest\Models\User as UserModel;
 
 class User implements Transformer
 {

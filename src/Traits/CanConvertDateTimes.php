@@ -27,7 +27,7 @@ trait CanConvertDateTimes
     ];
 
     /**
-     * Converts all known datetime fields into Carbon instances
+     * Converts all known datetime fields into Carbon instances.
      *
      * @param $data
      * @return Illuminate\Support\Collection

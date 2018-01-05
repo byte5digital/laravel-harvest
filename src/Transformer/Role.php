@@ -3,7 +3,7 @@
 namespace Byte5\LaravelHarvest\Transformer;
 
 use Byte5\LaravelHarvest\Contracts\Transformer;
-use \Byte5\LaravelHarvest\Models\Role as RoleModel;
+use Byte5\LaravelHarvest\Models\Role as RoleModel;
 
 class Role implements Transformer
 {

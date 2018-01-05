@@ -7,7 +7,7 @@ use Byte5\LaravelHarvest\Traits\CanConvertDateTimes;
 class ApiResponse
 {
     use CanConvertDateTimes;
-    
+
     /**
      * @var
      */

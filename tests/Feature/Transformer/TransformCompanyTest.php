@@ -11,11 +11,11 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformCompanyTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_companies_api_responses_into_their_corresponding_models()
+    public function it_can_transform_companies_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Company::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Company::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Company);

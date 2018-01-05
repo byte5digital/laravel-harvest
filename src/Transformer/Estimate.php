@@ -2,7 +2,7 @@
 
 namespace Byte5\LaravelHarvest\Transformer;
 
-use \Byte5\LaravelHarvest\Models\Estimate as EstimateModel;
+use Byte5\LaravelHarvest\Models\Estimate as EstimateModel;
 use Byte5\LaravelHarvest\Contracts\Transformer as TransformerContract;
 
 class Estimate implements TransformerContract

@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformExpensesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_expenses_api_responses_into_their_corresponding_models()
+    public function it_can_transform_expenses_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, Expense::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, Expense::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof Expense);
     }
 
     /** @test **/
-    function it_can_transform_expenses_api_responses_into_a_paginated_collection()
+    public function it_can_transform_expenses_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -67,7 +67,7 @@ class TransformExpensesTest extends TestCase
                         'id' => 125068553,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -80,8 +80,8 @@ class TransformExpensesTest extends TestCase
                     'expense_category' => [
                         'id' => 4195926,
                         'name' => 'Meals',
-                        'unit_price' => NULL,
-                        'unit_name' => NULL,
+                        'unit_price' => null,
+                        'unit_name' => null,
                     ],
                     'client' => [
                         'id' => 5735774,
@@ -106,7 +106,7 @@ class TransformExpensesTest extends TestCase
                     'created_at' => '2017-06-27T15:09:17Z',
                     'updated_at' => '2017-06-27T16:47:14Z',
                     'billable' => true,
-                    'receipt' => NULL,
+                    'receipt' => null,
                     'user' => [
                         'id' => 1782959,
                         'name' => 'Kim Allen',
@@ -115,7 +115,7 @@ class TransformExpensesTest extends TestCase
                         'id' => 125068554,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -128,29 +128,29 @@ class TransformExpensesTest extends TestCase
                     'expense_category' => [
                         'id' => 4197501,
                         'name' => 'Lodging',
-                        'unit_price' => NULL,
-                        'unit_name' => NULL,
+                        'unit_price' => null,
+                        'unit_name' => null,
                     ],
                     'client' => [
                         'id' => 5735776,
                         'name' => '123 Industries',
                         'currency' => 'EUR',
                     ],
-                    'invoice' => NULL,
+                    'invoice' => null,
                 ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/expenses?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/expenses?page=1&per_page=100',
-            ]
+            ],
         ];
     }
 }

@@ -26,7 +26,7 @@ class TimeEntry extends Model
      * @var array
      */
     protected $dates = [
-        'created_at', 'updated_at', 'spent_date', 'timer_started_at'
+        'created_at', 'updated_at', 'spent_date', 'timer_started_at',
     ];
 
     /**
@@ -37,7 +37,7 @@ class TimeEntry extends Model
         'task_assignment_id', 'invoice_id', 'reference', 'hours', 'billable_rate', 'cost_rate',
         'notes', 'is_locked', 'locked_reason', 'is_closed', 'is_billed', 'is_running',
         'billable', 'budgeted', 'started_time', 'ended_time', 'spent_date',
-        'timer_started_at'
+        'timer_started_at',
     ];
 
     /**

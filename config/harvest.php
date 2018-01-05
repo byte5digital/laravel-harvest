@@ -55,5 +55,5 @@ return [
         'time_entries' => 'time_entries',
         'users' => 'users',
         'user_assignments' => 'user_assignments',
-    ]
+    ],
 ];

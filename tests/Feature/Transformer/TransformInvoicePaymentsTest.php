@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformInvoicePaymentsTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_invoice_payments_api_responses_into_their_corresponding_models()
+    public function it_can_transform_invoice_payments_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, InvoicePayment::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, InvoicePayment::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof InvoicePayment);
     }
 
     /** @test **/
-    function it_can_transform_invoice_payments_api_responses_into_a_paginated_collection()
+    public function it_can_transform_invoice_payments_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -47,7 +47,7 @@ class TransformInvoicePaymentsTest extends TestCase
                     'recorded_by' => 'Alice Doe',
                     'recorded_by_email' => 'alice@example.com',
                     'notes' => 'Paid via check #4321',
-                    'transaction_id' => NULL,
+                    'transaction_id' => null,
                     'created_at' => '2017-06-27T16:24:57Z',
                     'updated_at' => '2017-06-27T16:24:57Z',
                     'payment_gateway' => [
@@ -59,13 +59,13 @@ class TransformInvoicePaymentsTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 1,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/invoices/13150378/payments?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/invoices/13150378/payments?page=1&per_page=100',
             ],
         ];

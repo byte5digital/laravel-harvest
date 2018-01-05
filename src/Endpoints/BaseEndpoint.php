@@ -22,12 +22,12 @@ abstract class BaseEndpoint
     /**
      * @return mixed
      */
-    protected abstract function getPath();
+    abstract protected function getPath();
 
     /**
      * @return mixed
      */
-    public abstract function getModel();
+    abstract public function getModel();
 
     /**
      * @return mixed

@@ -22,7 +22,7 @@ class ExpenseCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'external_id', 'name', 'unit_name', 'unit_price', 'is_active'
+        'external_id', 'name', 'unit_name', 'unit_price', 'is_active',
     ];
 
     /**

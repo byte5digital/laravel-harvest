@@ -5,13 +5,13 @@ namespace Byte5\LaravelHarvest\Test\Feature\Transformer;
 use Illuminate\Support\Collection;
 use Byte5\LaravelHarvest\ApiResponse;
 use Byte5\LaravelHarvest\Test\TestCase;
-use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 use Byte5\LaravelHarvest\Models\EstimateItemCategory;
+use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 
 class TransformEstimateItemCategoriesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_estimate_item_categories_api_responses_into_their_corresponding_models()
+    public function it_can_transform_estimate_item_categories_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -22,7 +22,7 @@ class TransformEstimateItemCategoriesTest extends TestCase
     }
 
     /** @test **/
-    function it_can_transform_estimate_item_categories_api_responses_into_a_paginated_collection()
+    public function it_can_transform_estimate_item_categories_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -51,18 +51,18 @@ class TransformEstimateItemCategoriesTest extends TestCase
                     'name' => 'Service',
                     'created_at' => '2017-06-26T20:41:00Z',
                     'updated_at' => '2017-06-26T20:41:00Z',
-                ]
+                ],
             ],
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 2,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/estimate_item_categories?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/estimate_item_categories?page=1&per_page=100',
             ],
         ];

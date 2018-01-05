@@ -11,18 +11,18 @@ use Byte5\LaravelHarvest\Test\Fakes\FakeZttpResponse;
 class TransformTimeEntriesTest extends TestCase
 {
     /** @test **/
-    function it_can_transform_time_entries_api_responses_into_their_corresponding_models()
+    public function it_can_transform_time_entries_api_responses_into_their_corresponding_models()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
-        $collection = (new ApiResponse($apiResult, TimeEntry::class))->toCollection();;
+        $collection = (new ApiResponse($apiResult, TimeEntry::class))->toCollection();
 
         $this->assertTrue($collection instanceof Collection);
         $this->assertTrue($collection->first() instanceof TimeEntry);
     }
 
     /** @test **/
-    function it_can_transform_time_entries_api_responses_into_a_paginated_collection()
+    public function it_can_transform_time_entries_api_responses_into_a_paginated_collection()
     {
         $apiResult = new FakeZttpResponse($this->getFakeData());
 
@@ -63,7 +63,7 @@ class TransformTimeEntriesTest extends TestCase
                         'id' => 125068553,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -75,7 +75,7 @@ class TransformTimeEntriesTest extends TestCase
                         'created_at' => '2017-06-26T21:36:23Z',
                         'updated_at' => '2017-06-26T21:36:23Z',
                         'hourly_rate' => 100,
-                        'budget' => NULL,
+                        'budget' => null,
                     ],
                     'hours' => 2,
                     'notes' => 'Adding CSS styling',
@@ -85,12 +85,12 @@ class TransformTimeEntriesTest extends TestCase
                     'locked_reason' => 'Item Approved and Locked for this Time Period',
                     'is_closed' => true,
                     'is_billed' => false,
-                    'timer_started_at' => NULL,
+                    'timer_started_at' => null,
                     'started_time' => '3:00pm',
                     'ended_time' => '5:00pm',
                     'is_running' => false,
-                    'invoice' => NULL,
-                    'external_reference' => NULL,
+                    'invoice' => null,
+                    'external_reference' => null,
                     'billable' => true,
                     'budgeted' => true,
                     'billable_rate' => 100,
@@ -119,7 +119,7 @@ class TransformTimeEntriesTest extends TestCase
                         'id' => 125068554,
                         'is_project_manager' => true,
                         'is_active' => true,
-                        'budget' => NULL,
+                        'budget' => null,
                         'created_at' => '2017-06-26T22:32:52Z',
                         'updated_at' => '2017-06-26T22:32:52Z',
                         'hourly_rate' => 100,
@@ -131,7 +131,7 @@ class TransformTimeEntriesTest extends TestCase
                         'created_at' => '2017-06-26T21:52:18Z',
                         'updated_at' => '2017-06-26T21:52:18Z',
                         'hourly_rate' => 100,
-                        'budget' => NULL,
+                        'budget' => null,
                     ],
                     'hours' => 1,
                     'notes' => 'Importing products',
@@ -141,7 +141,7 @@ class TransformTimeEntriesTest extends TestCase
                     'locked_reason' => 'Item Invoiced and Approved and Locked for this Time Period',
                     'is_closed' => true,
                     'is_billed' => true,
-                    'timer_started_at' => NULL,
+                    'timer_started_at' => null,
                     'started_time' => '1:00pm',
                     'ended_time' => '2:00pm',
                     'is_running' => false,
@@ -149,7 +149,7 @@ class TransformTimeEntriesTest extends TestCase
                         'id' => 13150403,
                         'number' => '1001',
                     ],
-                    'external_reference' => NULL,
+                    'external_reference' => null,
                     'billable' => true,
                     'budgeted' => true,
                     'billable_rate' => 100,
@@ -159,13 +159,13 @@ class TransformTimeEntriesTest extends TestCase
             'per_page' => 100,
             'total_pages' => 1,
             'total_entries' => 4,
-            'next_page' => NULL,
-            'previous_page' => NULL,
+            'next_page' => null,
+            'previous_page' => null,
             'page' => 1,
             'links' => [
                 'first' => 'https://api.harvestapp.com/v2/time_entries?page=1&per_page=100',
-                'next' => NULL,
-                'previous' => NULL,
+                'next' => null,
+                'previous' => null,
                 'last' => 'https://api.harvestapp.com/v2/time_entries?page=1&per_page=100',
             ],
         ];
