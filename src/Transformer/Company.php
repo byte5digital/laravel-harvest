@@ -16,7 +16,7 @@ class Company implements TransformerContract
         $company = new CompanyModel;
 
         if (config('harvest.uses_database')) {
-            $company = $company->firstOrNew(['external_id' => $data['full_domain']]);
+            $company = $company->firstOrNew(['full_domain' => $data['full_domain']]);
         }
 
         $company->base_uri = $data['base_uri'];
