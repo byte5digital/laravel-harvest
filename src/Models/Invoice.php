@@ -82,4 +82,13 @@ class Invoice extends Model
     {
         return $this->belongsTo(Estimate::class);
     }
+
+    /**
+     * Get invoice's expenses.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
 }
