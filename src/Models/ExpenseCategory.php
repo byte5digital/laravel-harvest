@@ -37,4 +37,13 @@ class ExpenseCategory extends Model
             config('harvest.table_prefix').config('harvest.table_names.expense_categories')
         );
     }
+
+    /**
+     * Get category's expenses.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
 }
