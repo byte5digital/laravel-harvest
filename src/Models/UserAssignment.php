@@ -51,6 +51,14 @@ class UserAssignment extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
+
+    /**
      * @return mixed
      */
     public function user()
