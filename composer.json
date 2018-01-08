@@ -3,6 +3,11 @@
     "description": "A Laravel wrapper for the Harvest API.",
     "type": "package",
     "license": "MIT",
+    "keywords": [
+        "getharvest",
+        "harvest",
+        "laravel"
+    ],
     "authors": [
         {
             "name": "Krishan König",
