@@ -1,11 +1,25 @@
 # Change Log
 
+## [v2.0.4](https://github.com/byte5digital/laravel-harvest/tree/v2.0.4) (2018-01-08)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.3...v2.0.4)
+
+**Merged pull requests:**
+
+- Update composer.json [\#4](https://github.com/byte5digital/laravel-harvest/pull/4) ([Dylan-DPC](https://github.com/Dylan-DPC))
+
+## [v2.0.3](https://github.com/byte5digital/laravel-harvest/tree/v2.0.3) (2018-01-05)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.2...v2.0.3)
+
 ## [v2.0.2](https://github.com/byte5digital/laravel-harvest/tree/v2.0.2) (2018-01-05)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.1...v2.0.2)
 
-**Added**
+**Implemented enhancements:**
 
 - loadExternal\(\) needs to query for existing relations [\#1](https://github.com/byte5digital/laravel-harvest/issues/1)
+
+**Merged pull requests:**
+
+- Apply fixes from StyleCI [\#2](https://github.com/byte5digital/laravel-harvest/pull/2) ([Naoray](https://github.com/Naoray))
 
 ## [v2.0.1](https://github.com/byte5digital/laravel-harvest/tree/v2.0.1) (2018-01-05)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0...v2.0.1)
