@@ -86,7 +86,7 @@ class Project extends Model
 
     /**
      * Get spent hours on project.
-     * @return Int
+     * @return int
      */
     public function getHoursAttribute()
     {
@@ -95,7 +95,7 @@ class Project extends Model
 
     /**
      * Get project's income.
-     * @return Int
+     * @return int
      */
     public function getIncomeAttribute()
     {
