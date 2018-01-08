@@ -37,4 +37,49 @@ class Client extends Model
             config('harvest.table_prefix').config('harvest.table_names.clients')
         );
     }
+
+    /**
+     * Get client's contacts.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    /**
+     * Get client's expenses.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
+
+    /**
+     * Get client's invoices.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
+
+    /**
+     * Get client's project.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    /**
+     * Get client's time entries.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function timeEntries()
+    {
+        return $this->hasMany(TimeEntry::class);
+    }
 }
