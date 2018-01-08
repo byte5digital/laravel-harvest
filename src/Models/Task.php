@@ -40,4 +40,12 @@ class Task extends Model
             config('harvest.table_prefix').config('harvest.table_names.tasks')
         );
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function timeEntries()
+    {
+        return $this->hasMany(TimeEntry::class);
+    }
 }
