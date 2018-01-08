@@ -83,4 +83,24 @@ class Project extends Model
     {
         return $this->hasMany(TimeEntry::class);
     }
+
+    /**
+     * Get spent hours on project.
+     * @return Int
+     */
+    public function getHoursAttribute()
+    {
+        return $this->timeEntries()->sum('hours');
+    }
+
+    /**
+     * Get project's income.
+     * @return Int
+     */
+    public function getIncomeAttribute()
+    {
+        return $this->expenses()->reduce(function ($carry, $item) {
+            return $carry + $item->invoice->sum('amount');
+        });
+    }
 }
