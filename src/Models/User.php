@@ -55,7 +55,7 @@ class User extends Model
      */
     public function expenses()
     {
-        return $this->hasMany(Expense::class);
+        return $this->hasMany(Expense::class, 'user_id');
     }
 
     /**
@@ -63,7 +63,7 @@ class User extends Model
      */
     public function invoices()
     {
-        return $this->hasMany(Invoice::class);
+        return $this->hasMany(Invoice::class, 'user_id');
     }
 
     /**
@@ -71,7 +71,7 @@ class User extends Model
      */
     public function timeEntries()
     {
-        return $this->hasMany(TimeEntry::class);
+        return $this->hasMany(TimeEntry::class, 'user_id');
     }
 
     /**
@@ -79,6 +79,6 @@ class User extends Model
      */
     public function assignments()
     {
-        return $this->hasMany(UserAssignment::class);
+        return $this->hasMany(UserAssignment::class, 'user_id');
     }
 }
