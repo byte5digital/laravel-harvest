@@ -90,7 +90,7 @@ class Project extends Model
      */
     public function getHoursAttribute()
     {
-        return $this->timeEntries()->sum('hours');
+        return $this->timeEntries->sum('hours');
     }
 
     /**
@@ -99,7 +99,7 @@ class Project extends Model
      */
     public function getIncomeAttribute()
     {
-        return $this->expenses()->reduce(function ($carry, $item) {
+        return $this->expenses->reduce(function ($carry, $item) {
             return $carry + $item->invoice->sum('amount');
         });
     }
