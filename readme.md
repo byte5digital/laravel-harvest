@@ -92,9 +92,23 @@ $result->toCollection();
 $result->toPaginatedCollection();
 ```
 
-### Get All Pages from Harvest
-By default harvest gives back a JSON-response with up to 100 records. If your harvest entries exceeds 100 records,
-you can call `next()` on the result to get to the next 100 results.
+### Handle Pagination
+By default harvest gives back a JSON-response with up to 100 records. If you want to limit your results you should use 
+`limit()`. If you want results from a specific page just pipe `fromPage()` before `find` or `get`.
+
+```php
+// get results from page 10
+$harvest->projects()->page(10)->get()
+
+// limit result entries to 50
+$harvest->projects()->limit(50)->get();
+
+// limit result entries and get results from page 10
+$harvest->projects()->limit(50)->page(10)->get();
+```
+
+If your harvest entries exceeds 100 records and you just want to get the results from the next or previous page,
+you may call `next()` on the result to get to the next 100 results. 
 
 ```php
 // get next result page

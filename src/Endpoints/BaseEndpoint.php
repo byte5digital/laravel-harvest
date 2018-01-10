@@ -17,7 +17,17 @@ abstract class BaseEndpoint
     /**
      * @var
      */
+    protected $limit;
+
+    /**
+     * @var
+     */
     protected $url;
+
+    /**
+     * @var
+     */
+    protected $page;
 
     /**
      * @return mixed
@@ -58,7 +68,10 @@ abstract class BaseEndpoint
     {
         $path = $this->replaceVarsInPath();
 
-        $this->url = $this->apiV2Url.$path.$subPath;
+        $fullPath = $this->apiV2Url.$path.$subPath;
+        $params = $this->getUrlParams();
+
+        $this->url = $fullPath.$params;
     }
 
     /**
@@ -69,6 +82,43 @@ abstract class BaseEndpoint
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlParams()
+    {
+        $page = $this->page;
+        $limit = $this->limit;
+        $seperator = '&';
+        $params = '';
+
+        $params .= $page;
+
+        if (! $page) {
+            $seperator = '?';
+        }
+
+        $params .= $limit ? $seperator.$limit : '';
+
+        return $params;
+    }
+
+    /**
+     * @param $page
+     */
+    public function page($page)
+    {
+        $this->page = '?page='.$page;
+    }
+
+    /**
+     * @param $limit
+     */
+    public function limit($limit)
+    {
+        $this->limit = 'per_page='.$limit;
     }
 
     /**
