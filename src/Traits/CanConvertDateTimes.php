@@ -40,7 +40,7 @@ trait CanConvertDateTimes
 
         return $data->map(function ($item) {
             foreach ($this->carbonParseable as $parseable) {
-                if (array_has($item, $parseable)) {
+                if (array_has($item, $parseable) && $item[$parseable] != null) {
                     $item[$parseable] = Carbon::parse($item[$parseable]);
                 }
             }
