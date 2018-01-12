@@ -34,7 +34,7 @@ class CreateHarvestProjectsTable extends Migration
             $table->boolean('cost_budget_include_expenses');
             $table->float('fee', 12, 2)->nullable();
             $table->text('notes');
-            $table->date('starts_on');
+            $table->date('starts_on')->nullable();
             $table->date('ends_on')->nullable();
             $table->date('over_budget_notification_date')->nullable();
             $table->timestamps();
