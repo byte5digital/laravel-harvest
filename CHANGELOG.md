@@ -1,5 +1,13 @@
 # Change Log
 
+## [v2.0.5](https://github.com/byte5digital/laravel-harvest/tree/v2.0.5) (2018-02-08)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.4...v2.0.5)
+
+**Merged pull requests:**
+
+- Apply fixes from StyleCI [\#6](https://github.com/byte5digital/laravel-harvest/pull/6) ([Naoray](https://github.com/Naoray))
+- update changelog [\#5](https://github.com/byte5digital/laravel-harvest/pull/5) ([Naoray](https://github.com/Naoray))
+
 ## [v2.0.4](https://github.com/byte5digital/laravel-harvest/tree/v2.0.4) (2018-01-08)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.3...v2.0.4)
 
