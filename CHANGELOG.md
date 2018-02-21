@@ -1,5 +1,27 @@
 # Change Log
 
+## [Unreleased](https://github.com/byte5digital/laravel-harvest/tree/HEAD)
+
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.1.1...HEAD)
+
+**Merged pull requests:**
+
+- 2.1 [\#9](https://github.com/byte5digital/laravel-harvest/pull/9) ([Naoray](https://github.com/Naoray))
+
+## [v2.1.1](https://github.com/byte5digital/laravel-harvest/tree/v2.1.1) (2018-02-21)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.1.0...v2.1.1)
+
+**Merged pull requests:**
+
+- Dev [\#8](https://github.com/byte5digital/laravel-harvest/pull/8) ([Naoray](https://github.com/Naoray))
+- resolve minor version issue with stable v2.0 and laravel 5.5/5.6 [\#7](https://github.com/byte5digital/laravel-harvest/pull/7) ([Naoray](https://github.com/Naoray))
+
+## [v2.1.0](https://github.com/byte5digital/laravel-harvest/tree/v2.1.0) (2018-02-21)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.6...v2.1.0)
+
+## [v2.0.6](https://github.com/byte5digital/laravel-harvest/tree/v2.0.6) (2018-02-21)
+[Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.5...v2.0.6)
+
 ## [v2.0.5](https://github.com/byte5digital/laravel-harvest/tree/v2.0.5) (2018-02-08)
 [Full Changelog](https://github.com/byte5digital/laravel-harvest/compare/v2.0.4...v2.0.5)
 
