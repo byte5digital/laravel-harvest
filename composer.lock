@@ -458,6 +458,18 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
+            "version": "v5.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "db3e5422070d9b5166493313142b30419efab207"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/db3e5422070d9b5166493313142b30419efab207",
+                "reference": "db3e5422070d9b5166493313142b30419efab207",
+=======
             "version": "v5.5.34",
             "source": {
                 "type": "git",
@@ -468,6 +480,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
                 "reference": "1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
                 "shasum": ""
             },
             "require": {
@@ -588,7 +601,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
+            "time": "2018-02-09T13:33:22+00:00"
+=======
             "time": "2018-02-06T15:36:55+00:00"
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
         },
         {
             "name": "league/flysystem",
@@ -2346,6 +2363,18 @@
         },
         {
             "name": "orchestra/testbench-core",
+<<<<<<< HEAD
+            "version": "v3.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchestral/testbench-core.git",
+                "reference": "e07a2dd5b9399d56f487379ac3af515a4635bd6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/e07a2dd5b9399d56f487379ac3af515a4635bd6a",
+                "reference": "e07a2dd5b9399d56f487379ac3af515a4635bd6a",
+=======
             "version": "v3.5.9",
             "source": {
                 "type": "git",
@@ -2356,6 +2385,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/997a5dfade0cfb9c88d5e1f2bf4ff76900311333",
                 "reference": "997a5dfade0cfb9c88d5e1f2bf4ff76900311333",
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
                 "shasum": ""
             },
             "require": {
@@ -2408,7 +2438,11 @@
                 "orchestral",
                 "testing"
             ],
+<<<<<<< HEAD
+            "time": "2018-02-20T04:08:58+00:00"
+=======
             "time": "2018-02-20T04:07:40+00:00"
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
         },
         {
             "name": "phar-io/manifest",
@@ -2978,6 +3012,18 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
+            "version": "7.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "316555dbd0ed4097bbdd17c65ab416bf27a472e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/316555dbd0ed4097bbdd17c65ab416bf27a472e9",
+                "reference": "316555dbd0ed4097bbdd17c65ab416bf27a472e9",
+=======
             "version": "6.5.6",
             "source": {
                 "type": "git",
@@ -2988,6 +3034,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3330ef26ade05359d006041316ed0fa9e8e3cefe",
                 "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe",
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
                 "shasum": ""
             },
             "require": {
@@ -3058,6 +3105,22 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2018-02-13T06:08:08+00:00"
+        },
+        {
+            "name": "phpunit/phpunit-mock-objects",
+            "version": "6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
+                "reference": "e3249dedc2d99259ccae6affbc2684eac37c2e53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/e3249dedc2d99259ccae6affbc2684eac37c2e53",
+                "reference": "e3249dedc2d99259ccae6affbc2684eac37c2e53",
+=======
             "time": "2018-02-01T05:57:37+00:00"
         },
         {
@@ -3072,6 +3135,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/33fd41a76e746b8fa96d00b49a23dadfa8334cdf",
                 "reference": "33fd41a76e746b8fa96d00b49a23dadfa8334cdf",
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
                 "shasum": ""
             },
             "require": {
@@ -3117,7 +3181,11 @@
                 "mock",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2018-02-15T05:27:38+00:00"
+=======
             "time": "2018-01-06T05:45:45+00:00"
+>>>>>>> 21eacb7ee117a67fd716cc9839ef66c23b78e5d1
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
