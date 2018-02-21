@@ -15,7 +15,7 @@ A small wrapper for the harvest API which aims to make your life more easier.
 `composer require byte5digital/laravel-harvest`
 
 #### Laravel Version 5.5
-`composer require byte5digital/laravel-harvest:2.0.4`
+`composer require byte5digital/laravel-harvest:2.0`
 
 *If you want to store harvest data into your database, set the `uses_database` in the `harvest` config to `true` and publish the migrations:*
 
