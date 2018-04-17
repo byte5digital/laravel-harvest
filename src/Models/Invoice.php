@@ -31,7 +31,7 @@ class Invoice extends Model
         'external_id', 'client_id', 'estimate_id', 'retainer_id', 'creator_id', 'line_items',
         'client_key', 'number', 'purchase_order', 'amount', 'due_amount', 'tax', 'tax_amount',
         'tax2', 'tax2_amount', 'discount', 'discount_amount', 'subject', 'notes', 'currency',
-	    'state', 'period_start', 'period_end', 'issue_date', 'due_date', 'sent_at', 'paid_at', 'closed_at',
+        'state', 'period_start', 'period_end', 'issue_date', 'due_date', 'sent_at', 'paid_at', 'closed_at',
     ];
 
     /**
