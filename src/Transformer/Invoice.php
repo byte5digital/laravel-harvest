@@ -36,6 +36,7 @@ class Invoice implements Transformer
         $invoice->subject = $data['subject'];
         $invoice->notes = $data['notes'];
         $invoice->currency = $data['currency'];
+        $invoice->state = $data['state'];
         $invoice->period_start = $data['period_start'];
         $invoice->period_end = $data['period_end'];
         $invoice->issue_date = $data['issue_date'];

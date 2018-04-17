@@ -15,19 +15,14 @@ abstract class BaseEndpoint
     protected $baseId;
 
     /**
-     * @var
+     * @var array
      */
-    protected $limit;
+    protected $params = [];
 
     /**
      * @var
      */
     protected $url;
-
-    /**
-     * @var
-     */
-    protected $page;
 
     /**
      * @return mixed
@@ -62,7 +57,6 @@ abstract class BaseEndpoint
 
     /**
      * @param $subPath
-     * @return string
      */
     protected function buildUrl($subPath = '')
     {
@@ -89,28 +83,7 @@ abstract class BaseEndpoint
      */
     public function getUrlParams()
     {
-        $page = $this->page;
-        $limit = $this->limit;
-        $seperator = '&';
-        $params = '';
-
-        $params .= $page;
-
-        if (! $page) {
-            $seperator = '?';
-        }
-
-        $params .= $limit ? $seperator.$limit : '';
-
-        return $params;
-    }
-
-    /**
-     * @param $page
-     */
-    public function page($page)
-    {
-        $this->page = '?page='.$page;
+        return count($this->params) ? '?'.http_build_query($this->params) : '';
     }
 
     /**
@@ -118,7 +91,23 @@ abstract class BaseEndpoint
      */
     public function limit($limit)
     {
-        $this->limit = 'per_page='.$limit;
+        $this->params += ['per_page' => $limit];
+    }
+
+    /**
+     * @param $page
+     */
+    public function page($page)
+    {
+        $this->params += ['page' => $page];
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function active($active = true)
+    {
+        $this->params += ['is_active' => $active ? 'true' : 'false'];
     }
 
     /**
