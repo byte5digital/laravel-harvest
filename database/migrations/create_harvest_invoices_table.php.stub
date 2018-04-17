@@ -37,6 +37,7 @@ class CreateHarvestInvoicesTable extends Migration
             $table->string('subject');
             $table->text('notes');
             $table->string('currency');
+            $table->string('state');
             $table->date('period_start')->nullable();
             $table->date('period_end')->nullable();
             $table->date('issue_date');
