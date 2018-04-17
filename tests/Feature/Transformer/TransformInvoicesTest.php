@@ -66,7 +66,7 @@ class TransformInvoicesTest extends TestCase
                     'updated_at' => '2017-08-23T22:25:59Z',
                     'currency' => 'EUR',
                     'state' => 'draft',
-	                'client' => [
+                    'client' => [
                         'id' => 5735776,
                         'name' => '123 Industries',
                     ],
@@ -135,7 +135,7 @@ class TransformInvoicesTest extends TestCase
                     'updated_at' => '2017-06-27T16:24:57Z',
                     'currency' => 'USD',
                     'state' => 'draft',
-	                'client' => [
+                    'client' => [
                         'id' => 5735776,
                         'name' => '123 Industries',
                     ],

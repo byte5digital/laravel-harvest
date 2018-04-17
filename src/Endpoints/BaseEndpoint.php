@@ -14,9 +14,9 @@ abstract class BaseEndpoint
      */
     protected $baseId;
 
-	/**
-	 * @var array
-	 */
+    /**
+     * @var array
+     */
     protected $params = [];
 
     /**
@@ -91,7 +91,7 @@ abstract class BaseEndpoint
      */
     public function limit($limit)
     {
-    	$this->params += ['per_page' => $limit];
+        $this->params += ['per_page' => $limit];
     }
 
     /**
@@ -99,7 +99,7 @@ abstract class BaseEndpoint
      */
     public function page($page)
     {
-    	$this->params += ['page' => $page];
+        $this->params += ['page' => $page];
     }
 
     /**
@@ -107,7 +107,7 @@ abstract class BaseEndpoint
      */
     public function active($active = true)
     {
-    	$this->params += ['is_active' => $active ? 'true' : 'false'];
+        $this->params += ['is_active' => $active ? 'true' : 'false'];
     }
 
     /**
