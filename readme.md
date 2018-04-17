@@ -123,6 +123,34 @@ $result = $result->next();
 $result = $result->previous();
 ```
 
+### Additional Params
+Adding additional params to your requests is also possible. *Not every param is supported yet*
+
+*supported params:*
+- `is_active` => `active()`
+
+Some Api Calls allow you to have different params:
+```php
+    // get all invoices with a state of 'draft'
+    $harvest->invoices()->state('draft')->get();
+    
+    // get all invoices with a client_id of '123445'
+    $harvest->invoices()->client('123445')->get();
+    
+    // get all invoices with a project_id of '123445'
+    $harvest->invoices()->project('123445')->get();
+    
+    // get all invoices which were updated since '2018-01-12'
+    // => does also accept other formats like '12.01.2018'
+    $harvest->invoices()->updatedSince('2018-01-12')->get();
+    
+    // get all invoices with an issue_date >= '2018-01-01'
+    $harvest->invoices()->from('2018-01-01')->get();
+    
+    // get all invoices with an issue_date <= '2018-01-01'
+    $harvest->invoices()->to('2018-01-01')->get();
+```
+
 ### Loading External Relations
 When you query the API for any object which has external relations, you might want to checkout the `loadExternal()`
 method to get those relations loaded locally.
