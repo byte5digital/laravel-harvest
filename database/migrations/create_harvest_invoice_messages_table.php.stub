@@ -27,7 +27,7 @@ class CreateHarvestInvoiceMessagesTable extends Migration
             $table->boolean('attach_pdf');
             $table->boolean('send_me_a_copy');
             $table->boolean('thank_you');
-            $table->boolean('event_type')->nullable();
+            $table->string('event_type')->nullable();
             $table->boolean('reminder');
             $table->date('send_reminder_on')->nullable();
             $table->timestamps();
