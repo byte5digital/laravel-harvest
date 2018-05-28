@@ -2,6 +2,8 @@
 
 namespace Byte5\LaravelHarvest\Endpoints;
 
+use Carbon\Carbon;
+
 class Client extends BaseEndpoint
 {
     /**
