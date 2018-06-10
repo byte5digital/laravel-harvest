@@ -24,7 +24,7 @@ class CreateHarvestContactsTable extends Migration
             $table->string('email');
             $table->string('phone_office')->nullable();
             $table->string('phone_mobile')->nullable();
-            $table->string('fax');
+            $table->string('fax')->nullable();
             $table->timestamps();
         });
     }
