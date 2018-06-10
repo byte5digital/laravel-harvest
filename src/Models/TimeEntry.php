@@ -13,7 +13,7 @@ class TimeEntry extends Model
      * @var array
      */
     protected $casts = [
-        'reference' => 'object',
+        'external_reference' => 'object',
         'is_locked' => 'boolean',
         'is_closed' => 'boolean',
         'is_billed' => 'boolean',
