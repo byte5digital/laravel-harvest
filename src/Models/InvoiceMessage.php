@@ -15,7 +15,6 @@ class InvoiceMessage extends Model
         'attach_pdf' => 'boolean',
         'send_me_a_copy' => 'boolean',
         'thank_you' => 'boolean',
-        'event_type' => 'boolean',
         'reminder' => 'boolean',
     ];
 
