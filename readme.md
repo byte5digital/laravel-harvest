@@ -19,7 +19,7 @@ A small wrapper for the harvest API which aims to make your life more easier.
 
 *If you want to store harvest data into your database, set the `uses_database` in the `harvest` config to `true` and publish the migrations:*
 
-`php artisan vendor:publish --provider="Byte5\LaravelHarvest\LaravelHarvestServiceProvider`
+`php artisan vendor:publish --provider="Byte5\LaravelHarvest\LaravelHarvestServiceProvider"`
 
 *If you only want to publish the config file add:* `--tag="config"`
 
