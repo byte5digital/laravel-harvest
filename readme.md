@@ -11,7 +11,7 @@ A small wrapper for the harvest API which aims to make your life more easier.
 
 ## Install
 
-#### Laravel Version 5.6+
+#### Laravel Version 5.7+
 `composer require byte5digital/laravel-harvest`
 
 #### Laravel Version 5.5
