@@ -30,7 +30,7 @@ trait CanResolveEndpoints
     private function getEndpointName($name)
     {
         return collect($this->availableEndpoints)->filter(function ($endpoint) use ($name) {
-            return str_singular(ucfirst($name)) == $endpoint;
+            return \Illuminate\Support\Str::singular(ucfirst($name)) == $endpoint;
         })->first();
     }
 
