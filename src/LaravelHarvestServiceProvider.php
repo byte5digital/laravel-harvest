@@ -68,7 +68,7 @@ class LaravelHarvestServiceProvider extends ServiceProvider
     {
         collect($this->migrationNames)->each(function ($migrationName) {
             if (! class_exists($migrationName)) {
-                $fileName = lcfirst(snake_case($migrationName));
+                $fileName = lcfirst(\Illuminate\Support\Str::snake($migrationName));
 
                 $this->publishes([
                     __DIR__.'/../database/migrations/'.$fileName.'.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_'.$fileName.'.php'),
